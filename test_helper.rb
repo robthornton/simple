@@ -3,6 +3,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 
-Dir['./test/**/*.rb'].sort.each do |file|
+Dir['./test/**/*_test.rb'].sort.each do |file|
   require file
 end
