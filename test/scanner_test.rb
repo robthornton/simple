@@ -9,6 +9,13 @@ class TestScanner < Minitest::Test
     pass
   end
 
+  def test_character
+    scanner = Scanner.new
+
+    assert_respond_to(scanner, 'character')
+    assert_equal('', scanner.character)
+  end
+
   def test_position
     scanner = Scanner.new
 
