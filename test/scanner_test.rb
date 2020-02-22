@@ -10,6 +10,9 @@ class TestScanner < Minitest::Test
   end
 
   def test_position
-    assert_respond_to(Scanner.new, 'position')
+    scanner = Scanner.new
+
+    assert_respond_to(scanner, 'position')
+    assert_equal(0, scanner.position)
   end
 end
