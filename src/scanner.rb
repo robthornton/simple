@@ -4,7 +4,8 @@
 class Scanner
   attr_reader :character, :position
 
-  def initialize
+  def initialize(source = '')
+    @source = source
     @character = ''
     @position = 0
   end
