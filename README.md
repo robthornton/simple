@@ -13,7 +13,7 @@ character at a time. It will:
 - `character` will provide the character at the cursor.
 - `accept` will take in a string of characters that the scanner will accept
   in order to advance. It will return the character accepted or nil.
-- raise `EndOfFileError` when it reaches the end of the file.
+- raise `EndOfInputError` when it reaches the end of the file.
 
 # Context Free Language
 
