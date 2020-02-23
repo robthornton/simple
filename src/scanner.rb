@@ -18,6 +18,8 @@ class Scanner
     @character = ''
     @position = 0
     @reading_position = 0
+
+    step
   end
 
   def ignore
@@ -31,11 +33,13 @@ class Scanner
   attr_writer :character, :position
 
   def step
-    self.reading_position = reading_position + 1
+    self.character = ''
+    self.position = reading_position
 
     raise EndOfInputError if reading_position >= source.length
 
-    self.position = reading_position
     self.character = source[position]
+
+    self.reading_position = reading_position + 1
   end
 end
