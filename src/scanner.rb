@@ -17,5 +17,25 @@ class Scanner
     @source = source
     @character = ''
     @position = 0
+    @reading_position = 0
+  end
+
+  def ignore
+    step
+  end
+
+  private
+
+  attr_accessor :reading_position
+  attr_reader :source
+  attr_writer :character, :position
+
+  def step
+    self.reading_position = reading_position + 1
+
+    raise EndOfInputError if reading_position >= source.length
+
+    self.position = reading_position
+    self.character = source[position]
   end
 end

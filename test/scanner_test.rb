@@ -27,4 +27,13 @@ class TestScanner < Minitest::Test
     assert_respond_to(scanner, 'position')
     assert_equal(0, scanner.position)
   end
+
+  def test_ignore_empty_source
+    scanner = Scanner.new
+
+    assert_respond_to(scanner, 'ignore')
+    assert_raises(EndOfInputError) { scanner.ignore }
+    assert_equal('', scanner.character)
+    assert_equal(0, scanner.position)
+  end
 end
