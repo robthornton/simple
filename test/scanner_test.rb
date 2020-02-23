@@ -43,4 +43,12 @@ class TestScanner < Minitest::Test
     assert_equal('b', scanner.character)
     assert_equal(1, scanner.position)
   end
+
+  def test_accept
+    scanner = Scanner.new('abc')
+
+    assert_equal('a', scanner.accept('a'))
+    assert_equal('b', scanner.character)
+    assert_equal(1, scanner.position)
+  end
 end

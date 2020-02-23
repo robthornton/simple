@@ -22,6 +22,14 @@ class Scanner
     step
   end
 
+  def accept(characters)
+    temporary = character
+    return unless characters.include?(character)
+
+    step
+    temporary
+  end
+
   def ignore
     step
   end
