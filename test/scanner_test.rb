@@ -4,15 +4,6 @@ require 'minitest/autorun'
 require_relative '../src/scanner.rb'
 
 class TestScanner < Minitest::Test
-  def test_new
-    assert_raises(EndOfInputError) { Scanner.new }
-  end
-
-  def test_new_with_source
-    Scanner.new('0')
-    pass
-  end
-
   def test_character
     scanner = Scanner.new('0')
 

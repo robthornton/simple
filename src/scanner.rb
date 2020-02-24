@@ -37,7 +37,7 @@ class Scanner
     @position = 0
     @reading_position = 0
 
-    step
+    step unless source.empty?
   end
 
   def step
