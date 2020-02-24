@@ -13,15 +13,6 @@ end
 class Scanner
   attr_reader :character, :position
 
-  def initialize(source = '')
-    @source = source
-    @character = ''
-    @position = 0
-    @reading_position = 0
-
-    step
-  end
-
   def accept(characters)
     temporary = character
     return unless characters.include?(character)
@@ -39,6 +30,15 @@ class Scanner
   attr_accessor :reading_position
   attr_reader :source
   attr_writer :character, :position
+
+  def initialize(source = '')
+    @source = source
+    @character = ''
+    @position = 0
+    @reading_position = 0
+
+    step
+  end
 
   def step
     self.character = ''
