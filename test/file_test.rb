@@ -4,6 +4,12 @@ require 'minitest/autorun'
 require_relative '../src/file.rb'
 
 class TestSimpleFile < Minitest::Test
+  def test_file_source
+    f = SimpleFile.new(name: 'file.smpl', source: '123', length: 3)
+
+    assert_equal('123', f.source)
+  end
+
   def test_file_position_zero
     f = SimpleFile.new(name: 'file.smpl', source: '', length: 1)
     position = f.position

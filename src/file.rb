@@ -2,6 +2,8 @@
 
 # File represents a file containing source code.
 class SimpleFile
+  attr_reader :source
+
   def add_newline(pos)
     @new_lines << pos
   end
