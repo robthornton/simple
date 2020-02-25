@@ -44,10 +44,10 @@ class Scanner
     self.character = ''
     self.position = reading_position
 
-    raise EndOfInputError if reading_position >= source.length
+    raise EndOfInputError if position > source.length
 
     self.character = source[position]
-
+    self.character = '' if character.nil?
     self.reading_position = reading_position + 1
   end
 end

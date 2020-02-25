@@ -21,10 +21,11 @@ class TestScanner < Minitest::Test
   def test_ignore_single_character_source_raises_error
     scanner = Scanner.new('0')
 
-    assert_respond_to(scanner, 'ignore')
-    assert_raises(EndOfInputError) { scanner.ignore }
+    # Ignore (skip) the first character.
+    scanner.ignore
     assert_equal('', scanner.character)
     assert_equal(1, scanner.position)
+    assert_raises(EndOfInputError) { scanner.ignore }
   end
 
   def test_ignore_with_source
@@ -41,5 +42,15 @@ class TestScanner < Minitest::Test
     assert_equal('a', scanner.accept('a'))
     assert_equal('b', scanner.character)
     assert_equal(1, scanner.position)
+  end
+
+  def test_accept_multiple
+    scanner = Scanner.new('abc')
+
+    literal = scanner.accept('abcde')
+    literal += scanner.accept('abcde')
+    literal += scanner.accept('abcde')
+
+    assert_equal('abc', literal)
   end
 end
