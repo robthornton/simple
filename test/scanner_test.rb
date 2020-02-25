@@ -21,11 +21,9 @@ class TestScanner < Minitest::Test
   def test_ignore_single_character_source_raises_error
     scanner = Scanner.new('0')
 
-    # Ignore (skip) the first character.
     scanner.ignore
     assert_equal('', scanner.character)
     assert_equal(1, scanner.position)
-    assert_raises(EndOfInputError) { scanner.ignore }
   end
 
   def test_ignore_with_source
