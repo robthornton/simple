@@ -6,7 +6,7 @@ class Scanner
 
   def accept(characters)
     temporary = character
-    return unless characters.include?(character)
+    return '' unless characters.include?(character)
 
     step
     temporary
@@ -33,10 +33,10 @@ class Scanner
 
   def step
     self.character = ''
+
+    return if position >= source.length
+
     self.position = reading_position
-
-    return if position > source.length
-
     self.character = source[position]
     self.character = '' if character.nil?
     self.reading_position = reading_position + 1

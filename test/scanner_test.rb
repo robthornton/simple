@@ -46,8 +46,8 @@ class TestScanner < Minitest::Test
     scanner = Scanner.new('abc')
 
     literal = scanner.accept('abcde')
-    literal += scanner.accept('abcde')
-    literal += scanner.accept('abcde')
+    character = ''
+    literal += character until (character = scanner.accept('abcde')).empty?
 
     assert_equal('abc', literal)
   end
