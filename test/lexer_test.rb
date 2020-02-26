@@ -24,4 +24,14 @@ class TestLexer < Minitest::Test
     assert_equal('123', item.literal)
     assert_equal(Token::INTEGER, item.token)
   end
+
+  def test_scan_skips_whitespace
+    file = SimpleFile.new(name: 'whitespace.smpl', source: " \t\n\r", length: 4)
+    lexer = Lexer.new(file)
+    item = lexer.scan
+
+    assert_equal(4, item.position)
+    assert_equal('', item.literal)
+    assert_equal(Token::EOF, item.token)
+  end
 end

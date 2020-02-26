@@ -28,9 +28,11 @@ end
 # Token.
 class Lexer
   def scan
+    skip_whitespace
+
     return scan_integer if digit?
 
-    Item.new(literal: '', position: 0, token: Token::EOF)
+    Item.new(literal: '', position: scanner.position, token: Token::EOF)
   end
 
   private
@@ -38,7 +40,8 @@ class Lexer
   attr_reader :file, :scanner
 
   DIGITS = '0123456789'
-  private_constant :DIGITS
+  WHITESPACE = " \t\n\r"
+  private_constant :DIGITS, :WHITESPACE
 
   def digit?
     DIGITS.include?(scanner.character) && !eof?
@@ -64,5 +67,10 @@ class Lexer
 
   def eof?
     scanner.character.empty?
+  end
+
+  def skip_whitespace
+    character = scanner.character
+    character = scanner.accept(WHITESPACE) until character.empty?
   end
 end
