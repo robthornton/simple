@@ -3,7 +3,8 @@
 # Token has constants represting the literal lexed.
 module Token
   EOF = 0
-  INTEGER = 1
+  UNKNOWN = 1
+  INTEGER = 2
 end
 
 # Item is a lexed literal.

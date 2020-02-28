@@ -20,4 +20,10 @@ class TestLexer < Minitest::Test
     assert_equal(0, item.position)
     assert_equal(Token::INTEGER, item.token)
   end
+
+  def test_item_unknown_literal
+    item = Item.new(literal: '', position: 0, token: Token::UNKNOWN)
+
+    assert_equal(Token::UNKNOWN, item.token)
+  end
 end
