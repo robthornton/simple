@@ -32,7 +32,11 @@ class Lexer
 
     return scan_integer if digit?
 
-    Item.new(literal: '', position: scanner.position, token: Token::EOF)
+    if eof?
+      return Item.new(literal: '', position: scanner.position, token: Token::EOF)
+    end
+
+    Item.new(literal: scanner.character, position: scanner.position, token: Token::UNKNOWN)
   end
 
   private

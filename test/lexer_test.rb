@@ -34,4 +34,14 @@ class TestLexer < Minitest::Test
     assert_equal('', item.literal)
     assert_equal(Token::EOF, item.token)
   end
+
+  def test_scan_unknown_character
+    file = SimpleFile.new(name: 'unknown.smpl', source: '#', length: 1)
+    lexer = Lexer.new(file)
+    item = lexer.scan
+
+    assert_equal(0, item.position)
+    assert_equal('#', item.literal)
+    assert_equal(Token::UNKNOWN, item.token)
+  end
 end
