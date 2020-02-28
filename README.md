@@ -10,9 +10,9 @@ scanned for:
 
 - Integer: A `NumericLiteral` consisting of the characters "0" through "9".
 
-The scanner will skip `Whitespace` characters. Any other character is an
-error of type `UnknownCharacterError`. At the end of a file, the lexer will
-return a scan item indicating the end of the file.
+The scanner will skip `Whitespace` characters. Any other character is
+emitted as type `Unknown`. At the end of a file, the lexer will return a
+scan item indicating the end of the file.
 
 For each literal found, the lexer will produce an `Item` which contains:
 
