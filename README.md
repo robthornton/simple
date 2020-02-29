@@ -57,3 +57,17 @@ NumericLiteral := Digit { Digit } ;
 Digit := "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 
 Whitespace := " " | "\t" | "\n" | "\r"
+
+## Parser
+
+The parser performs syntax analysis. It makes sure the scanned items conform
+to the context free language. It:
+
+- Takes input by way of a SimpleFile.
+- Accepts a Lexer to use.
+- Generates an abstract syntax tree when #parse is called.
+- It only does syntax analysis.
+
+## Abstract Syntax Tree
+
+Represents the parsed items. The context free language describes the tree.
