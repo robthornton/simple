@@ -1,0 +1,6 @@
+# Ignore generated C and assembly files
+*.c
+*.s
+
+# Ignore Simple language files
+*.smpl
