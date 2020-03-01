@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'ast.rb'
+
 # The Parser produces an abstract syntax tree
 class Parser
   def initialize(lexer)

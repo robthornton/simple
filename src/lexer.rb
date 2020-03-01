@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'item.rb'
+require_relative 'scanner.rb'
 
 # Lex contains variables lexer modules that can be included into the Lexer
 # class
