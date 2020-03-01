@@ -9,7 +9,7 @@ class CGeneratorTest < Minitest::Test
   def test_generate_empty_program
     file_mock = Minitest::Mock.new
     file_mock.expect(:puts, nil, [
-                       'int main(int argc, char* argv[] { return 0; }'
+                       'int main(int argc, char* argv[]) { return 0; }'
                      ])
 
     program = Program.new

@@ -7,7 +7,7 @@ class CGenerator
   end
 
   def generate(_program)
-    out.puts('int main(int argc, char* argv[] { return 0; }')
+    out.puts('int main(int argc, char* argv[]) { return 0; }')
   end
 
   private
