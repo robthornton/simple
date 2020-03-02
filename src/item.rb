@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 # Token has constants represting the literal lexed.

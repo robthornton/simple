@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 # File represents a file containing source code.

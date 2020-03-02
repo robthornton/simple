@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 # Generates C code for the supplied program

@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 # Position contains the file name, line and column of a literal

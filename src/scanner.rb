@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 # Scanner steps through an input file, one character at a time.
