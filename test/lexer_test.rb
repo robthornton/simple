@@ -23,7 +23,7 @@ class TestLexer < Minitest::Test
 
     assert_equal(0, item.position)
     assert_equal('123', item.literal)
-    assert_equal(Token::INTEGER, item.token)
+    assert_equal(Token::Integer, item.token)
   end
 
   def test_scan_skips_whitespace
@@ -43,6 +43,6 @@ class TestLexer < Minitest::Test
 
     assert_equal(0, item.position)
     assert_equal('#', item.literal)
-    assert_equal(Token::UNKNOWN, item.token)
+    assert_equal(Token::Unknown, item.token)
   end
 end

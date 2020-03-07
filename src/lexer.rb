@@ -21,7 +21,7 @@ module Lex
         break unless character.nil?
       end
 
-      Item.new(literal: literal, position: start, token: Token::INTEGER)
+      Item.new(literal: literal, position: start, token: Token::Integer)
     end
   end
 end
@@ -38,7 +38,7 @@ class Lexer
       return Item.new(literal: '', position: scanner.position, token: Token::EOF)
     end
 
-    Item.new(literal: scanner.character, position: scanner.position, token: Token::UNKNOWN)
+    Item.new(literal: scanner.character, position: scanner.position, token: Token::Unknown)
   end
 
   private
@@ -68,7 +68,7 @@ class Lexer
       ch = scanner.accept(DIGITS)
     end
 
-    Item.new(literal: literal, position: start, token: Token::INTEGER)
+    Item.new(literal: literal, position: start, token: Token::Integer)
   end
 
   def eof?
