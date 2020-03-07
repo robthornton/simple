@@ -15,16 +15,16 @@ class TestLexer < Minitest::Test
   end
 
   def test_item_integer_literal
-    item = Item.new(literal: '123', position: 0, token: Token::INTEGER)
+    item = Item.new(literal: '123', position: 0, token: Token::Integer)
 
     assert_equal('123', item.literal)
     assert_equal(0, item.position)
-    assert_equal(Token::INTEGER, item.token)
+    assert_equal(Token::Integer, item.token)
   end
 
   def test_item_unknown_literal
-    item = Item.new(literal: '', position: 0, token: Token::UNKNOWN)
+    item = Item.new(literal: '', position: 0, token: Token::Unknown)
 
-    assert_equal(Token::UNKNOWN, item.token)
+    assert_equal(Token::Unknown, item.token)
   end
 end
