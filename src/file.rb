@@ -1,14 +1,21 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
+
+require 'sorbet-runtime'
 
 # File represents a file containing source code.
 class SimpleFile
+  extend T::Sig
+
+  sig { returns(String) }
   attr_reader :source
 
+  sig { params(pos: Integer).returns(T::Array[Integer]) }
   def add_newline(pos)
     @new_lines << pos
   end
 
+  sig { params(pos: Integer).returns(Position) }
   def position(pos = 0)
     line = 0
     column = pos
@@ -25,9 +32,14 @@ class SimpleFile
 
   private
 
-  attr_reader :name, :new_lines
+  sig { returns(String) }
+  attr_reader :name
 
-  def initialize(name: '', source:, length:)
+  sig { returns(T::Array[Integer]) }
+  attr_reader :new_lines
+
+  sig { params(source: String, length: Integer, name: String).void }
+  def initialize(source:, length:, name: '')
     @name = name
     @source = source
     @length = length
