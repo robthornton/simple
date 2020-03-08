@@ -7,12 +7,13 @@ up:
   - bundler
 
 commands:
-  console:
-    desc: "start a console"
-    run: bin/console
   run:
     desc: "start the application"
-    run: bin/run
+    run: ruby ./src/compiler.rb
+  typecheck:
+    desc: "Perform type-checking"
+    aliases: [tc]
+    run: bundle exec srb tc
   test:
     syntax:
       argument: file
