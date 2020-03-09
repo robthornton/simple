@@ -4,28 +4,6 @@
 require_relative 'item.rb'
 require_relative 'scanner.rb'
 
-# Lex contains variables lexer modules that can be included into the Lexer
-# class
-module Lex
-  # Integer is used to scan for integer literals
-  module Integer
-    private
-
-    def scan_integer(scanner)
-      start = scanner.position
-      literal = scanner.character
-
-      loop do
-        character = scanner.accept(self.DIGITS)
-        literal += charater
-        break unless character.nil?
-      end
-
-      Item.new(literal: literal, position: start, token: Token::Integer)
-    end
-  end
-end
-
 # Lexer is a lexical analyzer. Each call to scan will return a new
 # Token.
 class Lexer
