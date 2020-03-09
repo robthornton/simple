@@ -26,6 +26,7 @@ class Lexer
 
   private
 
+  sig { returns(SimpleFile) }
   attr_reader :file
 
   sig { returns(Scanner) }
