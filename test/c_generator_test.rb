@@ -8,16 +8,13 @@ require_relative '../src/c_generator.rb'
 
 class CGeneratorTest < Minitest::Test
   def test_generate_empty_program
-    file_mock = Minitest::Mock.new
-    file_mock.expect(:puts, nil, [
-                       'int main(int argc, char* argv[]) { return 0; }'
-                     ])
+    file = StringIO.new
 
     program = Program.new
 
-    generator = CGenerator.new(out: file_mock)
+    generator = CGenerator.new(out: file)
     generator.generate(program)
 
-    file_mock.verify
+    assert_equal('int main(int argc, char* argv[]) { return 0; }', file.string)
   end
 end

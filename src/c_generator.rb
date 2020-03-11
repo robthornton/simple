@@ -7,13 +7,14 @@ require 'sorbet-runtime'
 class CGenerator
   extend T::Sig
 
+  sig { params(out: T.any(File, StringIO)).void }
   def initialize(out:)
     @out = out
   end
 
   sig { params(_program: Program).void }
   def generate(_program)
-    out.puts('int main(int argc, char* argv[]) { return 0; }')
+    out.print('int main(int argc, char* argv[]) { return 0; }')
   end
 
   private
