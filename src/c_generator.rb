@@ -19,5 +19,6 @@ class CGenerator
 
   private
 
+  sig { returns(T.any(File, StringIO)) }
   attr_reader :out
 end
