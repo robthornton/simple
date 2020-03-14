@@ -12,12 +12,12 @@ class Parser
     @lexer = lexer
   end
 
-  sig { returns(Program) }
+  sig { returns(Ast::Program) }
   def parse
     item = lexer.scan
     expression = parse_expression(item)
 
-    p = Program.new
+    p = Ast::Program.new
     p.add_expression(expression)
     p
   end
