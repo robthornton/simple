@@ -7,8 +7,10 @@ up:
   - bundler
 
 commands:
-  start:
-    desc: "start the application"
+  compile:
+    desc: "run the compiler"
+    syntax:
+      argument: file
     run: ruby ./src/compiler.rb
   typecheck:
     desc: "Perform type-checking"
