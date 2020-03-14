@@ -13,6 +13,16 @@ class TestAbstractSyntaxTree < Minitest::Test
     assert_equal('42', l.literal)
   end
 
+  def test_binary_expression
+    lhs = NumericLiteral.new(literal: '1', position: 0)
+    rhs = NumericLiteral.new(literal: '2', position: 0)
+    be = BinaryExpression.new(lhs: lhs, operator: '+', rhs: rhs)
+
+    assert_equal(lhs, be.lhs)
+    assert_equal('+', be.operator)
+    assert_equal(rhs, be.rhs)
+  end
+
   def test_program
     p = Ast::Program.new
 
