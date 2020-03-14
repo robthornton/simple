@@ -13,7 +13,7 @@ source = input.read
 
 file = SimpleFile.new(name: 'test.smpl', source: source, length: source.length)
 lexer = Lexer.new(file)
-parser = Parser.new(lexer)
+parser = Simple::Parser.new(lexer)
 
 program = parser.parse
 
