@@ -16,6 +16,7 @@ class Lexer
     skip_whitespace
 
     return scan_integer if digit?
+    return scan_operator if operator?
 
     if eof?
       return Item.new(literal: '', position: scanner.position, token: Token::EOF)
@@ -33,12 +34,18 @@ class Lexer
   attr_reader :scanner
 
   DIGITS = '0123456789'
+  OPERATORS = '+-*/'
   WHITESPACE = " \t\n\r"
   private_constant :DIGITS, :WHITESPACE
 
   sig { returns(T::Boolean) }
   def digit?
     DIGITS.include?(scanner.character) && !eof?
+  end
+
+  sig { returns(T::Boolean) }
+  def operator?
+    OPERATORS.include?(scanner.character) && !eof?
   end
 
   sig { params(file: SimpleFile).void }
@@ -59,6 +66,20 @@ class Lexer
     end
 
     Item.new(literal: literal, position: start, token: Token::Integer)
+  end
+
+  sig { returns(Item) }
+  def scan_operator
+    position = scanner.position
+    literal = scanner.accept(OPERATORS)
+
+    token = Token::Unknown
+    token = Token::AddOperator if literal == '+'
+    token = Token::SubtractOperator if literal == '-'
+    token = Token::MultiplyOperator if literal == '*'
+    token = Token::DivisionOperator if literal == '/'
+
+    Item.new(literal: literal, position: position, token: token)
   end
 
   sig { returns(T::Boolean) }

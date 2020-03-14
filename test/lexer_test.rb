@@ -3,6 +3,7 @@
 
 require 'minitest/autorun'
 
+require_relative '../src/item.rb'
 require_relative '../src/lexer.rb'
 
 class TestLexer < Minitest::Test
@@ -44,5 +45,45 @@ class TestLexer < Minitest::Test
     assert_equal(0, item.position)
     assert_equal('#', item.literal)
     assert_equal(Token::Unknown, item.token)
+  end
+
+  def test_scan_add_operator
+    file = SimpleFile.new(name: 'add.smpl', source: '+', length: 1)
+    lexer = Lexer.new(file)
+    item = lexer.scan
+
+    assert_equal(0, item.position)
+    assert_equal('+', item.literal)
+    assert_equal(Token::AddOperator, item.token)
+  end
+
+  def test_scan_subtract_operator
+    file = SimpleFile.new(name: 'subtract.smpl', source: '-', length: 1)
+    lexer = Lexer.new(file)
+    item = lexer.scan
+
+    assert_equal(0, item.position)
+    assert_equal('-', item.literal)
+    assert_equal(Token::SubtractOperator, item.token)
+  end
+
+  def test_scan_multiply_operator
+    file = SimpleFile.new(name: 'multiply.smpl', source: '*', length: 1)
+    lexer = Lexer.new(file)
+    item = lexer.scan
+
+    assert_equal(0, item.position)
+    assert_equal('*', item.literal)
+    assert_equal(Token::MultiplyOperator, item.token)
+  end
+
+  def test_scan_division_operator
+    file = SimpleFile.new(name: 'division.smpl', source: '/', length: 1)
+    lexer = Lexer.new(file)
+    item = lexer.scan
+
+    assert_equal(0, item.position)
+    assert_equal('/', item.literal)
+    assert_equal(Token::DivisionOperator, item.token)
   end
 end
