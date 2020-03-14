@@ -110,6 +110,11 @@ class Array
   def self.try_convert(_); end
 end
 
+class Ast::Program
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 BasicObject::BasicObject = BasicObject
 
 class BigDecimal
@@ -121,6 +126,11 @@ end
 
 class BigDecimal
   def self.new(*args, **kwargs); end
+end
+
+class BinaryExpression
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
 end
 
 class Binding
@@ -850,6 +860,16 @@ module CGI::HtmlExtension
 end
 
 module CGI::HtmlExtension
+end
+
+class CGenerator::Numeric
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class CGenerator::Program
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
 end
 
 class Class
@@ -1795,6 +1815,11 @@ class Integer
   def self.sqrt(_); end
 end
 
+class Item
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 class JSON::Ext::Generator::State
   def self.from_state(_); end
 end
@@ -1856,6 +1881,16 @@ class KeyError
   def receiver(); end
 end
 
+class Lexer
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Literal
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 class LoadError
   def path(); end
 end
@@ -1869,6 +1904,8 @@ end
 module Marshal
   def self.restore(*_); end
 end
+
+Methods = T::Private::Methods
 
 module Minitest
 end
@@ -4829,6 +4866,11 @@ class Pathname
   def glob(*_); end
 
   def make_symlink(_); end
+end
+
+class Position
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
 end
 
 class Proc
@@ -18342,6 +18384,11 @@ end
 
 ScanError = StringScanner::Error
 
+class Scanner
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 module SecureRandom
   def self.bytes(n); end
 end
@@ -18392,6 +18439,11 @@ class SignalException
   def signm(); end
 
   def signo(); end
+end
+
+class SimpleFile
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
 end
 
 module SingleForwardable
@@ -21774,6 +21826,16 @@ class Tempfile::Remover
 end
 
 class Tempfile::Remover
+end
+
+class TestLexer
+  def test_scan_empty_source(); end
+
+  def test_scan_integer(); end
+
+  def test_scan_skips_whitespace(); end
+
+  def test_scan_unknown_character(); end
 end
 
 class Thor
