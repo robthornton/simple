@@ -7,11 +7,6 @@ require_relative 'ast.rb'
 class Parser
   extend T::Sig
 
-  sig { params(lexer: Lexer).void }
-  def initialize(lexer)
-    @lexer = lexer
-  end
-
   sig { returns(Ast::Program) }
   def parse
     item = lexer.scan
@@ -26,6 +21,11 @@ class Parser
 
   sig { returns(Lexer) }
   attr_reader :lexer
+
+  sig { params(lexer: Lexer).void }
+  def initialize(lexer)
+    @lexer = lexer
+  end
 
   sig { params(item: Item).returns(Literal) }
   def parse_expression(item)
