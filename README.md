@@ -74,9 +74,23 @@ Represents the parsed items. The context free language describes the tree.
 
 ## Code Generator
 
-- Compiles Program to C
+- Compiles a Program to C
 
-# Language
+## Optimization
+
+The C language is one of the most mature languages still in common use
+today. A tremendous amount of effort has been made to add optimizations
+to the code generator in GCC and other compilers for the language. As
+such, the minimal advantages that could be provided within Simple's
+compiler would probably end up producing code that the an optimizing C
+compiler can't optimize as well.
+
+As such, this compiler will make no attempts at optimizing in any way.
+
+# Language Notes
+
+The purpose of this sections is more for internal notes and thought
+experiments. It is not meant to be a language resource.
 
 ## Math
 
