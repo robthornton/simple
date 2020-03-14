@@ -48,11 +48,15 @@ character at a time. It will:
 
 Program := { Expression } ;
 
-Expression := Literal ;
+Expression := BinaryExpression | Literal ;
+
+BinaryExpression := Expression ArithmeticOperator Expression ;
 
 Literal := NumericLiteral ;
 
 NumericLiteral := Digit { Digit } ;
+
+ArithmeticOperator := "+" | "-" | "/" | "\*" ;
 
 Digit := "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 
