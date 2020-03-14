@@ -71,3 +71,62 @@ to the context free language. It:
 ## Abstract Syntax Tree
 
 Represents the parsed items. The context free language describes the tree.
+
+## Code Generator
+
+- Compiles Program to C
+
+# Language
+
+## Math
+
+a + b
+a - b
+a \* b
+a / b
+
+## Bitwise Operators
+
+a & b
+a | b
+
+## Logical Operators
+
+a < b // Less than
+a = b
+a > b
+a <= b
+a >= b
+a != b
+
+## Assignment Operators
+
+":=" is standard assignment. The other assigment operators match their mathematical
+equivilents. There are no increment or decrement operators at this time.
+
+a := b
+a += b
+a -= b
+a \*= b
+a /= b
+
+## Expressions
+
+include (String)
+if (Expression) { Expression } else { Expression }
+var (Identifier [, Identifier] := Expression [, Expression]])
+for (Expression) { Expression }
+for (Initializer, Expression, Incrementer) { Expression } # for (var (a = 0), a < 5, a += 1) {}
+
+# Potential Future Additions
+
+## Operators
+
+- shifting (arithmetic and bitwisee) operators ("<<", "<=", ">>", ">=")
+- logical operators ("&&", "||")
+- arithmetic operators ("^" => exponential, "^=")
+- bitwise operators ("&", "|")
+
+## Keywords
+
+- switch-case
