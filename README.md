@@ -85,6 +85,8 @@ a - b
 a \* b
 a / b
 
+- Parentheses used for precidence "(a + b) \* c".
+
 ## Bitwise Operators
 
 a & b

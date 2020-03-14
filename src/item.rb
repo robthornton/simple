@@ -9,6 +9,10 @@ class Token < T::Enum
     EOF = new(1)
     Unknown = new(2)
     Integer = new(3)
+    AddOperator = new(4)
+    SubtractOperator = new(5)
+    MultiplyOperator = new(6)
+    DivisionOperator = new(7)
   end
 end
 

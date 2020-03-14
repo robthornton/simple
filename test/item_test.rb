@@ -27,4 +27,28 @@ class TestLexer < Minitest::Test
 
     assert_equal(Token::Unknown, item.token)
   end
+
+  def test_item_add_operator
+    item = Item.new(literal: '+', position: 0, token: Token::AddOperator)
+
+    assert_equal(Token::AddOperator, item.token)
+  end
+
+  def test_item_subtract_operator
+    item = Item.new(literal: '-', position: 0, token: Token::SubtractOperator)
+
+    assert_equal(Token::SubtractOperator, item.token)
+  end
+
+  def test_item_multiply_operator
+    item = Item.new(literal: '*', position: 0, token: Token::MultiplyOperator)
+
+    assert_equal(Token::MultiplyOperator, item.token)
+  end
+
+  def test_item_division_operator
+    item = Item.new(literal: '/', position: 0, token: Token::DivisionOperator)
+
+    assert_equal(Token::DivisionOperator, item.token)
+  end
 end
