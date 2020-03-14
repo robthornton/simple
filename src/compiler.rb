@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 require_relative('./file.rb')
@@ -9,7 +9,7 @@ require_relative('./c_generator.rb')
 input = File.open('./test.smpl')
 output = File.open('./test.c', 'w')
 
-source = input.read
+source = T.must(input.read)
 
 file = SimpleFile.new(name: 'test.smpl', source: source, length: source.length)
 lexer = Lexer.new(file)
