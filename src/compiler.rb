@@ -17,5 +17,5 @@ parser = Parser.new(lexer)
 
 program = parser.parse
 
-generator = CGenerator.new(out: output)
+generator = CGenerator::Program.new(out: output)
 generator.generate(program)
