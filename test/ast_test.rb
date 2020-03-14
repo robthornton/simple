@@ -14,7 +14,7 @@ class TestAbstractSyntaxTree < Minitest::Test
   end
 
   def test_program
-    p = Program.new
+    p = Ast::Program.new
 
     p.add_expression(NumericLiteral.new(literal: '0', position: 0))
     assert_equal(1, p.expressions.length)

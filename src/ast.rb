@@ -28,20 +28,22 @@ end
 class NumericLiteral < Literal
 end
 
-# A Program consists of zero or more expressions.
-class Program
-  extend T::Sig
+module Ast
+  # A Program consists of zero or more expressions.
+  class Program
+    extend T::Sig
 
-  sig { returns(T::Array[Expression]) }
-  attr_reader :expressions
+    sig { returns(T::Array[Expression]) }
+    attr_reader :expressions
 
-  sig { void }
-  def initialize
-    @expressions = []
-  end
+    sig { void }
+    def initialize
+      @expressions = []
+    end
 
-  sig { params(expression: Expression).void }
-  def add_expression(expression)
-    @expressions << expression
+    sig { params(expression: Expression).void }
+    def add_expression(expression)
+      @expressions << expression
+    end
   end
 end
