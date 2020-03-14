@@ -16,9 +16,14 @@ module CGenerator
       @out = out
     end
 
-    sig { params(_program: Ast::Program).void }
-    def generate(_program)
-      out.print('int main(int argc, char* argv[]) { return 0; }')
+    sig { params(program: Ast::Program).void }
+    def generate(program)
+      out.print('int main(int argc, char* argv[]) { return ')
+      Numeric.generate(
+        out: out,
+        expression: T.cast(program.expressions[0], NumericLiteral)
+      )
+      out.print('; }')
     end
 
     private

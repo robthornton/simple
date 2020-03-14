@@ -11,11 +11,12 @@ class CGeneratorTest < Minitest::Test
     file = StringIO.new
 
     program = Ast::Program.new
+    program.add_expression(NumericLiteral.new(literal: '42', position: 0))
 
     generator = CGenerator::Program.new(out: file)
     generator.generate(program)
 
-    assert_equal('int main(int argc, char* argv[]) { return 0; }', file.string)
+    assert_equal('int main(int argc, char* argv[]) { return 42; }', file.string)
   end
 
   def test_generate_numeric
