@@ -43,7 +43,9 @@ module Simple
     sig { params(item: Item, lhs: Expression).returns(BinaryExpression) }
     def parse_binary_expression(item:, lhs:)
       operator = item.literal
-      rhs = NumericLiteral.new(literal: item.literal, position: item.position)
+
+      item = lexer.scan
+      rhs = parse_expression(item)
 
       BinaryExpression.new(lhs: lhs, operator: operator, rhs: rhs)
     end

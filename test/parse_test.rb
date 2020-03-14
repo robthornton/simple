@@ -26,4 +26,15 @@ class ParserTest < Minitest::Test
     assert_equal(1, program.expressions.length)
     assert_kind_of(BinaryExpression, program.expressions[0])
   end
+
+  def test_parse_chained_binary_expression
+    file = SimpleFile.new(name: 'add.smpl', source: '2 + 3 - 1', length: 5)
+    lexer = Lexer.new(file)
+    parser = Simple::Parser.new(lexer)
+    program = parser.parse
+
+    binexp = program.expressions[0]
+    assert_kind_of(BinaryExpression, binexp)
+    assert_kind_of(BinaryExpression, binexp.rhs)
+  end
 end
