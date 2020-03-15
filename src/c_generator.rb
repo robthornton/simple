@@ -43,6 +43,7 @@ module CGenerator
       if expression.instance_of?(Ast::NumericLiteral)
         Numeric.generate(out: out, expression: T.cast(expression, Ast::NumericLiteral))
       end
+
       if expression.instance_of?(Ast::BinaryExpression)
         Binary.generate(out: out, expression: T.cast(expression, Ast::BinaryExpression))
       end
@@ -69,9 +70,9 @@ module CGenerator
 
     sig { params(out: T.any(File, StringIO), expression: Ast::BinaryExpression).void }
     def self.generate(out:, expression:)
-      Numeric.generate(out: out, expression: T.cast(expression.lhs, Ast::NumericLiteral))
+      Expression.generate(out: out, expression: expression.lhs)
       out.print(expression.operator)
-      Numeric.generate(out: out, expression: T.cast(expression.rhs, Ast::NumericLiteral))
+      Expression.generate(out: out, expression: expression.rhs)
     end
   end
 end
