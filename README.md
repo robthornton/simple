@@ -48,15 +48,25 @@ character at a time. It will:
 
 Program := { Expression } ;
 
-Expression := BinaryExpression | Literal ;
+Expression := BinaryExpression | VarExpression | Literal ;
 
 BinaryExpression := Expression ArithmeticOperator Expression ;
+
+VarExpression := "var" Identifier [ "," Identifier [ Type ] ] Type [ VarAssignment ] ;
+
+VarAssignment := AssignmentOperator Expression [ "," Expression ] ;
+
+Type := Identifier ;
+
+Identifier := /[A-Za-z]/ { /[A-Za-z0-9_]/ }
 
 Literal := NumericLiteral ;
 
 NumericLiteral := Digit { Digit } ;
 
 ArithmeticOperator := "+" | "-" | "/" | "\*" ;
+
+AssignmentOperator := ":=" ;
 
 Digit := "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 
@@ -96,7 +106,27 @@ As such, this compiler will make no attempts at optimizing in any way.
 The purpose of this sections is more for internal notes and thought
 experiments. It is not meant to be a language resource.
 
-## Math
+## Types
+
+### Built-in
+
+- "int" | "int8" | "int16" | "int32" | "int64"
+- "uint" | "uint8" | "uint16" | "uint32" | "uint64"
+
+- `int` is an alias for the architecture's standard word size.
+- `int8` -> `char` in C
+- `int16` -> `short` in C
+- `int32` -> `long` in C
+- `int64` -> `long long` in C
+- `uint` is an alias for the architecture's standard word size, unsigned.
+- `uint8` -> `unsigned char` in C
+- `uint16` -> `unsigned short` in C
+- `uint32` -> `unsigned long` in C
+- `uint64` -> `unsigned long long` in C
+
+## Operators
+
+### Math
 
 a + b
 a - b
@@ -105,12 +135,12 @@ a / b
 
 - Parentheses used for precidence "(a + b) \* c".
 
-## Bitwise Operators
+### Bitwise Operators
 
 a & b
 a | b
 
-## Logical Operators
+### Logical Operators
 
 a < b // Less than
 a = b
@@ -119,7 +149,7 @@ a <= b
 a >= b
 a != b
 
-## Assignment Operators
+### Assignment Operators
 
 ":=" is standard assignment. The other assigment operators match their mathematical
 equivilents. There are no increment or decrement operators at this time.
@@ -132,11 +162,17 @@ a /= b
 
 ## Expressions
 
-include (String)
-if (Expression) { Expression } else { Expression }
-var (Identifier [, Identifier] := Expression [, Expression]])
-for (Expression) { Expression }
-for (Initializer, Expression, Incrementer) { Expression } # for (var (a = 0), a < 5, a += 1) {}
+### Variable Declarations
+
+Declare a public/exported variable named `MyVariable`.
+
+```
+var MyVariable int
+```
+
+Variables are always initialized to the zero value of their type. If
+the optional assignment operator is included, then the number of
+expressions must match the number of identifiers.
 
 # Potential Future Additions
 
