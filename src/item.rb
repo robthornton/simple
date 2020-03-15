@@ -6,13 +6,17 @@ require 'sorbet-runtime'
 # Token has constants represting the literal lexed.
 class Token < T::Enum
   enums do
-    EOF = new(1)
-    Unknown = new(2)
-    Integer = new(3)
-    AddOperator = new(4)
-    SubtractOperator = new(5)
-    MultiplyOperator = new(6)
-    DivisionOperator = new(7)
+    EOF = new
+    Unknown = new
+    Integer = new
+    AddOperator = new
+    SubtractOperator = new
+    MultiplyOperator = new
+    DivisionOperator = new
+    Assignment = new
+    Comma = new
+    Identifier = new
+    Var = new
   end
 end
 

@@ -51,4 +51,28 @@ class TestLexer < Minitest::Test
 
     assert_equal(Token::DivisionOperator, item.token)
   end
+
+  def test_item_var_keyword
+    item = Item.new(literal: 'var', position: 0, token: Token::Var)
+
+    assert_equal(Token::Var, item.token)
+  end
+
+  def test_item_identifier
+    item = Item.new(literal: 'ident', position: 0, token: Token::Identifier)
+
+    assert_equal(Token::Identifier, item.token)
+  end
+
+  def test_item_comma_separator
+    item = Item.new(literal: ',', position: 0, token: Token::Comma)
+
+    assert_equal(Token::Comma, item.token)
+  end
+
+  def test_item_assignment_operator
+    item = Item.new(literal: ':=', position: 0, token: Token::Assignment)
+
+    assert_equal(Token::Assignment, item.token)
+  end
 end
