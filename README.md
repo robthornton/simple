@@ -174,6 +174,29 @@ Variables are always initialized to the zero value of their type. If
 the optional assignment operator is included, then the number of
 expressions must match the number of identifiers.
 
+The side effects of an assignment is the value of the declared variable.
+
+```
+var Variable1 int := var Variable0 int := 32
+```
+
+`Variable0 == 42` and `Variable1 == 42`. Of course, it would clearer, shorter
+and recommended to write:
+
+```
+var Variable0, Variable1 := 42, 42
+```
+
+A third possibility would be to write:
+
+```
+var Variable0, Variable1 := 42, Variable0
+```
+
+...since variables are declared, and their matching assignments evaluated,
+left to right, this is perfectly viable. However, since it comes at the cost
+of readability, it is not recommended.
+
 # Potential Future Additions
 
 ## Operators
