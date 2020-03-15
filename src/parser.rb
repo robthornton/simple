@@ -30,9 +30,9 @@ module Simple
       @lexer = lexer
     end
 
-    sig { params(item: Item).returns(Expression) }
+    sig { params(item: Item).returns(Ast::Expression) }
     def parse_expression(item)
-      expression = NumericLiteral.new(literal: item.literal, position: item.position)
+      expression = Ast::NumericLiteral.new(literal: item.literal, position: item.position)
 
       item = lexer.scan
       return expression if item.token == Token::EOF
@@ -40,14 +40,14 @@ module Simple
       parse_binary_expression(item: item, lhs: expression)
     end
 
-    sig { params(item: Item, lhs: Expression).returns(BinaryExpression) }
+    sig { params(item: Item, lhs: Ast::Expression).returns(Ast::BinaryExpression) }
     def parse_binary_expression(item:, lhs:)
       operator = item.literal
 
       item = lexer.scan
       rhs = parse_expression(item)
 
-      BinaryExpression.new(lhs: lhs, operator: operator, rhs: rhs)
+      Ast::BinaryExpression.new(lhs: lhs, operator: operator, rhs: rhs)
     end
   end
 end

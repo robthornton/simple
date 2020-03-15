@@ -14,7 +14,7 @@ class ParserTest < Minitest::Test
     program = parser.parse
 
     assert_equal(1, program.expressions.length)
-    assert_kind_of(NumericLiteral, program.expressions[0])
+    assert_kind_of(Ast::NumericLiteral, program.expressions[0])
   end
 
   def test_parse_binary_expression
@@ -24,7 +24,7 @@ class ParserTest < Minitest::Test
     program = parser.parse
 
     assert_equal(1, program.expressions.length)
-    assert_kind_of(BinaryExpression, program.expressions[0])
+    assert_kind_of(Ast::BinaryExpression, program.expressions[0])
   end
 
   def test_parse_chained_binary_expression
@@ -34,7 +34,7 @@ class ParserTest < Minitest::Test
     program = parser.parse
 
     binexp = program.expressions[0]
-    assert_kind_of(BinaryExpression, binexp)
-    assert_kind_of(BinaryExpression, binexp.rhs)
+    assert_kind_of(Ast::BinaryExpression, binexp)
+    assert_kind_of(Ast::BinaryExpression, binexp.rhs)
   end
 end
