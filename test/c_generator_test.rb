@@ -11,7 +11,7 @@ class CGeneratorTest < Minitest::Test
     file = StringIO.new
 
     program = Ast::Program.new
-    program.add_expression(NumericLiteral.new(literal: '42', position: 0))
+    program.add_expression(Ast::NumericLiteral.new(literal: '42', position: 0))
 
     generator = CGenerator::Program.new(out: file)
     generator.generate(program)
@@ -20,11 +20,22 @@ class CGeneratorTest < Minitest::Test
   end
 
   def test_generate_numeric
-    numeric = NumericLiteral.new(literal: '42', position: 0)
+    numeric = Ast::NumericLiteral.new(literal: '42', position: 0)
     file = StringIO.new
 
     CGenerator::Numeric.generate(out: file, expression: numeric)
 
     assert_equal('42', file.string)
+  end
+
+  def test_generate_binary_expression
+    lhs = Ast::NumericLiteral.new(literal: '1', position: 0)
+    rhs = Ast::NumericLiteral.new(literal: '2', position: 2)
+    binexp = Ast::BinaryExpression.new(lhs: lhs, operator: '+', rhs: rhs)
+
+    file = StringIO.new
+    CGenerator::Binary.generate(out: file, expression: binexp)
+
+    assert_equal('1+2', file.string)
   end
 end

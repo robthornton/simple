@@ -19,9 +19,9 @@ module CGenerator
     sig { params(program: Ast::Program).void }
     def generate(program)
       out.print('int main(int argc, char* argv[]) { return ')
-      Numeric.generate(
+      Expression.generate(
         out: out,
-        expression: T.cast(program.expressions[0], NumericLiteral)
+        expression: T.cast(program.expressions[0], Ast::Expression)
       )
       out.print('; }')
     end
@@ -34,13 +34,44 @@ module CGenerator
 end
 
 module CGenerator
+  # Expression
+  class Expression
+    extend T::Sig
+
+    sig { params(out: T.any(File, StringIO), expression: Ast::Expression).void }
+    def self.generate(out:, expression:)
+      if expression.instance_of?(Ast::NumericLiteral)
+        Numeric.generate(out: out, expression: T.cast(expression, Ast::NumericLiteral))
+      end
+      if expression.instance_of?(Ast::BinaryExpression)
+        Binary.generate(out: out, expression: T.cast(expression, Ast::BinaryExpression))
+      end
+    end
+  end
+end
+
+module CGenerator
   # Numeric literal generator
   class Numeric
     extend T::Sig
 
-    sig { params(out: T.any(File, StringIO), expression: NumericLiteral).void }
+    sig { params(out: T.any(File, StringIO), expression: Ast::NumericLiteral).void }
     def self.generate(out:, expression:)
       out.print(expression.literal)
+    end
+  end
+end
+
+module CGenerator
+  # Binary expression generator
+  class Binary
+    extend T::Sig
+
+    sig { params(out: T.any(File, StringIO), expression: Ast::BinaryExpression).void }
+    def self.generate(out:, expression:)
+      Numeric.generate(out: out, expression: T.cast(expression.lhs, Ast::NumericLiteral))
+      out.print(expression.operator)
+      Numeric.generate(out: out, expression: T.cast(expression.rhs, Ast::NumericLiteral))
     end
   end
 end
