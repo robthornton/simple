@@ -83,6 +83,27 @@ module Ast
 end
 
 module Ast
+  # A var expression
+  class VarExpression
+    extend T::Sig
+
+    sig { returns(T::Array[Identifier]) }
+    attr_reader :identifiers
+
+    sig { returns(Integer) }
+    attr_reader :var
+
+    private
+
+    sig { params(var: Integer, identifiers: T::Array[Identifier]).void }
+    def initialize(var:, identifiers:)
+      @identifiers = identifiers
+      @var = var
+    end
+  end
+end
+
+module Ast
   # A Program consists of zero or more expressions.
   class Program
     extend T::Sig

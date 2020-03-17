@@ -30,6 +30,14 @@ class TestAbstractSyntaxTree < Minitest::Test
     assert_equal(0, ident.position)
   end
 
+  def test_var_expression
+    ident = Ast::Identifier.new(literal: 'ident', position: 4)
+    varexp = Ast::VarExpression.new(var: 0, identifiers: [ident])
+
+    assert_equal(0, varexp.var)
+    assert_equal(ident, varexp.identifiers[0])
+  end
+
   def test_program
     p = Ast::Program.new
 
