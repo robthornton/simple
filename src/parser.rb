@@ -32,6 +32,8 @@ module Simple
 
     sig { params(item: Item).returns(Ast::Expression) }
     def parse_expression(item)
+      return parse_var(item) if item.token == Token::Var
+
       expression = Ast::NumericLiteral.new(literal: item.literal, position: item.position)
 
       item = lexer.scan
@@ -48,6 +50,16 @@ module Simple
       rhs = parse_expression(item)
 
       Ast::BinaryExpression.new(lhs: lhs, operator: operator, rhs: rhs)
+    end
+
+    sig { params(item: Item).returns(Ast::VarExpression) }
+    def parse_var(item)
+      var = item.position
+      item = lexer.scan
+
+      ident = Ast::Identifier.new(literal: item.literal, position: item.position)
+
+      Ast::VarExpression.new(var: var, identifiers: [ident])
     end
   end
 end
