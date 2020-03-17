@@ -35,7 +35,7 @@ class Lexer
   attr_reader :scanner
 
   DIGITS = '0123456789'
-  OPERATORS = '+-*/'
+  OPERATORS = '+-*/:'
   LOWER = 'abcdefghijklmnopqrstuvwxyz'
   UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   ALPHA = T.let(UPPER + LOWER, String)
@@ -72,6 +72,16 @@ class Lexer
   def initialize(file)
     @file = file
     @scanner = Scanner.new(file.source)
+  end
+
+  sig { params(literal: String, position: Integer).returns(Item) }
+  def scan_assignment(literal:, position:)
+    token = Token::Unknown
+    token = Token::Assignment if literal == ':'
+
+    literal += scanner.accept('=')
+
+    Item.new(literal: literal, position: position, token: token)
   end
 
   sig { returns(Item) }
@@ -112,6 +122,10 @@ class Lexer
     token = Token::SubtractOperator if literal == '-'
     token = Token::MultiplyOperator if literal == '*'
     token = Token::DivisionOperator if literal == '/'
+
+    if scanner.character == '='
+      return scan_assignment(literal: literal, position: position)
+    end
 
     Item.new(literal: literal, position: position, token: token)
   end

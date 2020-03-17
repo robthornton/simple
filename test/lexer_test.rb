@@ -106,4 +106,14 @@ class TestLexer < Minitest::Test
     assert_equal('ident', item.literal)
     assert_equal(Token::Identifier, item.token)
   end
+
+  def test_scan_assignment
+    file = SimpleFile.new(name: 'assignment.smpl', source: ':=', length: 2)
+    lexer = Lexer.new(file)
+    item = lexer.scan
+
+    assert_equal(0, item.position)
+    assert_equal(':=', item.literal)
+    assert_equal(Token::Assignment, item.token)
+  end
 end
