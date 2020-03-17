@@ -63,7 +63,7 @@ end
 
 module Ast
   # An Identifier
-  class Identifier
+  class Identifier < Expression
     extend T::Sig
 
     sig { returns(String) }
@@ -84,7 +84,7 @@ end
 
 module Ast
   # A var expression
-  class VarExpression
+  class VarExpression < Expression
     extend T::Sig
 
     sig { returns(T::Array[Identifier]) }
