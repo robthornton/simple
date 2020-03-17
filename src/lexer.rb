@@ -36,7 +36,9 @@ class Lexer
 
   DIGITS = '0123456789'
   OPERATORS = '+-*/'
-  ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+  LOWER = 'abcdefghijklmnopqrstuvwxyz'
+  UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  ALPHA = T.let(UPPER + LOWER, String)
   WHITESPACE = " \t\n\r"
 
   private_constant :ALPHA, :DIGITS, :OPERATORS, :WHITESPACE
@@ -56,6 +58,16 @@ class Lexer
     OPERATORS.include?(scanner.character) && !eof?
   end
 
+  sig { params(ident: String).returns(Token) }
+  def ident_token(ident)
+    case ident
+    when 'var'
+      Token::Var
+    else
+      Token::Identifier
+    end
+  end
+
   sig { params(file: SimpleFile).void }
   def initialize(file)
     @file = file
@@ -73,7 +85,7 @@ class Lexer
       ch = scanner.accept(ALPHA)
     end
 
-    Item.new(literal: literal, position: start, token: Token::Var)
+    Item.new(literal: literal, position: start, token: ident_token(literal))
   end
 
   sig { returns(Item) }
