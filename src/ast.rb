@@ -62,6 +62,27 @@ module Ast
 end
 
 module Ast
+  # An Identifier
+  class Identifier
+    extend T::Sig
+
+    sig { returns(String) }
+    attr_reader :literal
+
+    sig { returns(Integer) }
+    attr_reader :position
+
+    private
+
+    sig { params(literal: String, position: Integer).void }
+    def initialize(literal:, position:)
+      @literal = literal
+      @position = position
+    end
+  end
+end
+
+module Ast
   # A Program consists of zero or more expressions.
   class Program
     extend T::Sig

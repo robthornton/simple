@@ -23,6 +23,13 @@ class TestAbstractSyntaxTree < Minitest::Test
     assert_equal(rhs, be.rhs)
   end
 
+  def test_identifier
+    ident = Ast::Identifier.new(literal: 'ident', position: 0)
+
+    assert_equal('ident', ident.literal)
+    assert_equal(0, ident.position)
+  end
+
   def test_program
     p = Ast::Program.new
 
