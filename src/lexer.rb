@@ -18,6 +18,7 @@ class Lexer
     return scan_integer if digit?
     return scan_identifier if alpha?
     return scan_operator if operator?
+    return scan_comma if comma?
 
     if eof?
       return Item.new(literal: '', position: scanner.position, token: Token::EOF)
@@ -46,6 +47,11 @@ class Lexer
   sig { returns(T::Boolean) }
   def alpha?
     ALPHA.include?(scanner.character) && !eof?
+  end
+
+  sig { returns(T::Boolean) }
+  def comma?
+    scanner.character == ',' && !eof?
   end
 
   sig { returns(T::Boolean) }
@@ -82,6 +88,12 @@ class Lexer
     literal += scanner.accept('=')
 
     Item.new(literal: literal, position: position, token: token)
+  end
+
+  sig { returns(Item) }
+  def scan_comma
+    position = scanner.position
+    Item.new(literal: scanner.accept(','), position: position, token: Token::Comma)
   end
 
   sig { returns(Item) }

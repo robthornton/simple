@@ -116,4 +116,14 @@ class TestLexer < Minitest::Test
     assert_equal(':=', item.literal)
     assert_equal(Token::Assignment, item.token)
   end
+
+  def test_scan_assignment
+    file = SimpleFile.new(name: 'comma.smpl', source: ',', length: 1)
+    lexer = Lexer.new(file)
+    item = lexer.scan
+
+    assert_equal(0, item.position)
+    assert_equal(',', item.literal)
+    assert_equal(Token::Comma, item.token)
+  end
 end
