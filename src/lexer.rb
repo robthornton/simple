@@ -16,6 +16,7 @@ class Lexer
     skip_whitespace
 
     return scan_integer if digit?
+    return scan_identifier if alpha?
     return scan_operator if operator?
 
     if eof?
@@ -35,8 +36,15 @@ class Lexer
 
   DIGITS = '0123456789'
   OPERATORS = '+-*/'
+  ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
   WHITESPACE = " \t\n\r"
-  private_constant :DIGITS, :WHITESPACE
+
+  private_constant :ALPHA, :DIGITS, :OPERATORS, :WHITESPACE
+
+  sig { returns(T::Boolean) }
+  def alpha?
+    ALPHA.include?(scanner.character) && !eof?
+  end
 
   sig { returns(T::Boolean) }
   def digit?
@@ -52,6 +60,20 @@ class Lexer
   def initialize(file)
     @file = file
     @scanner = Scanner.new(file.source)
+  end
+
+  sig { returns(Item) }
+  def scan_identifier
+    start = scanner.position
+    literal = ''
+    ch = scanner.accept(ALPHA)
+
+    until ch.empty?
+      literal += ch
+      ch = scanner.accept(ALPHA)
+    end
+
+    Item.new(literal: literal, position: start, token: Token::Var)
   end
 
   sig { returns(Item) }

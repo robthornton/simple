@@ -86,4 +86,14 @@ class TestLexer < Minitest::Test
     assert_equal('/', item.literal)
     assert_equal(Token::DivisionOperator, item.token)
   end
+
+  def test_scan_var_keyword
+    file = SimpleFile.new(name: 'var.smpl', source: 'var', length: 3)
+    lexer = Lexer.new(file)
+    item = lexer.scan
+
+    assert_equal(0, item.position)
+    assert_equal('var', item.literal)
+    assert_equal(Token::Var, item.token)
+  end
 end
