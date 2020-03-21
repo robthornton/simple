@@ -48,4 +48,19 @@ class ParserTest < Minitest::Test
     assert_kind_of(Ast::VarExpression, varexp)
     assert_kind_of(Ast::Identifier, varexp.identifiers[0])
   end
+
+  # def test_parse_var_expression_multiple_identifiers
+  #   file = SimpleFile.new(
+  #     name: 'var_single.smpl',
+  #     source: 'var ident0, ident1',
+  #     length: 18
+  #   )
+  #   lexer = Lexer.new(file)
+  #   parser = Simple::Parser.new(lexer)
+  #   program = parser.parse
+
+  #   varexp = program.expressions[0]
+  #   assert_kind_of(Ast::VarExpression, varexp)
+  #   assert_equal(2, varexp.identifiers.length)
+  # end
 end

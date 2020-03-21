@@ -12,8 +12,8 @@ module Simple
 
     sig { returns(Ast::Program) }
     def parse
-      item = lexer.scan
-      expression = parse_expression(item)
+      next_item
+      expression = parse_expression
 
       p = Ast::Program.new
       p.add_expression(expression)
@@ -25,18 +25,39 @@ module Simple
     sig { returns(Lexer) }
     attr_reader :lexer
 
+    sig { returns(Item) }
+    attr_reader :item
+
+    # sig { params(item: Item).void }
+    # attr_writer :item
+
     sig { params(lexer: Lexer).void }
     def initialize(lexer)
       @lexer = lexer
     end
 
-    sig { params(item: Item).returns(Ast::Expression) }
-    def parse_expression(item)
-      return parse_var(item) if item.token == Token::Var
+    sig { void }
+    def next_item
+      @item = lexer.scan
+    end
+
+    sig { params(type: Token).returns(Integer) }
+    def expect(type)
+      if item.token != type
+        # this should actually add a parse error
+        return -1
+      end
+
+      item.position
+    end
+
+    sig { returns(Ast::Expression) }
+    def parse_expression
+      return parse_var if item.token == Token::Var
 
       expression = Ast::NumericLiteral.new(literal: item.literal, position: item.position)
 
-      item = lexer.scan
+      next_item
       return expression if item.token == Token::EOF
 
       parse_binary_expression(item: item, lhs: expression)
@@ -46,20 +67,34 @@ module Simple
     def parse_binary_expression(item:, lhs:)
       operator = item.literal
 
-      item = lexer.scan
-      rhs = parse_expression(item)
+      next_item
+      rhs = parse_expression
 
       Ast::BinaryExpression.new(lhs: lhs, operator: operator, rhs: rhs)
     end
 
-    sig { params(item: Item).returns(Ast::VarExpression) }
-    def parse_var(item)
-      var = item.position
-      item = lexer.scan
+    sig { returns(T::Array[Ast::Identifier]) }
+    def parse_identifier_list
+      identifiers = T.let([], T::Array[Ast::Identifier])
+      # more = T.let(true, T::Boolean)
 
-      ident = Ast::Identifier.new(literal: item.literal, position: item.position)
+      # while more
+      identifiers << Ast::Identifier.new(literal: item.literal, position: item.position)
 
-      Ast::VarExpression.new(var: var, identifiers: [ident])
+      # more = false if item.token == Token::Comma
+      # end
+
+      identifiers
+    end
+
+    sig { returns(Ast::VarExpression) }
+    def parse_var
+      var = expect(Token::Var)
+      next_item
+
+      identifiers = parse_identifier_list
+
+      Ast::VarExpression.new(var: var, identifiers: identifiers)
     end
   end
 end
