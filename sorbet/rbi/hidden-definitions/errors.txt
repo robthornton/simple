@@ -2872,6 +2872,7 @@
 # wrong constant name push
 # wrong constant name reset
 # wrong constant name <static-init>
+# wrong constant name <static-init>
 # undefined method `children<defaultArg>1' for class `Pathname'
 # undefined method `find<defaultArg>1' for class `Pathname'
 # wrong constant name children<defaultArg>1
@@ -5181,7 +5182,6 @@
 # Did you mean?  RuboCop::AST::AliasNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::AliasNode::KEYWORDS
 # uninitialized constant RuboCop::AST::AliasNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::AliasNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::AliasNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::AliasNode::OPERATOR_KEYWORDS
@@ -5205,7 +5205,6 @@
 # Did you mean?  RuboCop::AST::AndNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::AndNode::KEYWORDS
 # uninitialized constant RuboCop::AST::AndNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::AndNode::LOGICAL_AND
 # Did you mean?  RuboCop::AST::AndNode::LOGICAL_OR
 # uninitialized constant RuboCop::AST::AndNode::LOGICAL_OR
@@ -5238,7 +5237,6 @@
 # Did you mean?  RuboCop::AST::ArgsNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ArgsNode::KEYWORDS
 # uninitialized constant RuboCop::AST::ArgsNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::ArgsNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::ArgsNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ArgsNode::OPERATOR_KEYWORDS
@@ -5262,7 +5260,6 @@
 # Did you mean?  RuboCop::AST::ArrayNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ArrayNode::KEYWORDS
 # uninitialized constant RuboCop::AST::ArrayNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::ArrayNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::ArrayNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ArrayNode::OPERATOR_KEYWORDS
@@ -5296,7 +5293,6 @@
 # Did you mean?  RuboCop::AST::BlockNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::BlockNode::KEYWORDS
 # uninitialized constant RuboCop::AST::BlockNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::BlockNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::BlockNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::BlockNode::OPERATOR_KEYWORDS
@@ -5335,7 +5331,6 @@
 # Did you mean?  RuboCop::AST::BreakNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::BreakNode::KEYWORDS
 # uninitialized constant RuboCop::AST::BreakNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::BreakNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::BreakNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::BreakNode::OPERATOR_KEYWORDS
@@ -5362,7 +5357,6 @@
 # Did you mean?  RuboCop::AST::CaseNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::CaseNode::KEYWORDS
 # uninitialized constant RuboCop::AST::CaseNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::CaseNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::CaseNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::CaseNode::OPERATOR_KEYWORDS
@@ -5389,7 +5383,6 @@
 # Did you mean?  RuboCop::AST::ClassNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ClassNode::KEYWORDS
 # uninitialized constant RuboCop::AST::ClassNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::ClassNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::ClassNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ClassNode::OPERATOR_KEYWORDS
@@ -5549,7 +5542,6 @@
 # Did you mean?  RuboCop::AST::DefNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::DefNode::KEYWORDS
 # uninitialized constant RuboCop::AST::DefNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::DefNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::DefNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::DefNode::OPERATOR_KEYWORDS
@@ -5582,7 +5574,6 @@
 # Did you mean?  RuboCop::AST::DefinedNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::DefinedNode::KEYWORDS
 # uninitialized constant RuboCop::AST::DefinedNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::DefinedNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::DefinedNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::DefinedNode::OPERATOR_KEYWORDS
@@ -5608,7 +5599,6 @@
 # Did you mean?  RuboCop::AST::EnsureNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::EnsureNode::KEYWORDS
 # uninitialized constant RuboCop::AST::EnsureNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::EnsureNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::EnsureNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::EnsureNode::OPERATOR_KEYWORDS
@@ -5631,7 +5621,6 @@
 # Did you mean?  RuboCop::AST::FloatNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::FloatNode::KEYWORDS
 # uninitialized constant RuboCop::AST::FloatNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::FloatNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::FloatNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::FloatNode::OPERATOR_KEYWORDS
@@ -5654,7 +5643,6 @@
 # Did you mean?  RuboCop::AST::ForNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ForNode::KEYWORDS
 # uninitialized constant RuboCop::AST::ForNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::ForNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::ForNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ForNode::OPERATOR_KEYWORDS
@@ -5683,7 +5671,6 @@
 # Did you mean?  RuboCop::AST::ForwardArgsNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ForwardArgsNode::KEYWORDS
 # uninitialized constant RuboCop::AST::ForwardArgsNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::ForwardArgsNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::ForwardArgsNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ForwardArgsNode::OPERATOR_KEYWORDS
@@ -5714,7 +5701,6 @@
 # Did you mean?  RuboCop::AST::HashNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::HashNode::KEYWORDS
 # uninitialized constant RuboCop::AST::HashNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::HashNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::HashNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::HashNode::OPERATOR_KEYWORDS
@@ -5746,7 +5732,6 @@
 # Did you mean?  RuboCop::AST::IfNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::IfNode::KEYWORDS
 # uninitialized constant RuboCop::AST::IfNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::IfNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::IfNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::IfNode::OPERATOR_KEYWORDS
@@ -5781,7 +5766,6 @@
 # Did you mean?  RuboCop::AST::IntNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::IntNode::KEYWORDS
 # uninitialized constant RuboCop::AST::IntNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::IntNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::IntNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::IntNode::OPERATOR_KEYWORDS
@@ -5804,7 +5788,6 @@
 # Did you mean?  RuboCop::AST::KeywordSplatNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::KeywordSplatNode::KEYWORDS
 # uninitialized constant RuboCop::AST::KeywordSplatNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::KeywordSplatNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::KeywordSplatNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::KeywordSplatNode::OPERATOR_KEYWORDS
@@ -5884,7 +5867,6 @@
 # Did you mean?  RuboCop::AST::ModuleNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ModuleNode::KEYWORDS
 # uninitialized constant RuboCop::AST::ModuleNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::ModuleNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::ModuleNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ModuleNode::OPERATOR_KEYWORDS
@@ -6120,7 +6102,6 @@
 # Did you mean?  RuboCop::AST::OrNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::OrNode::KEYWORDS
 # uninitialized constant RuboCop::AST::OrNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::OrNode::LOGICAL_AND
 # Did you mean?  RuboCop::AST::OrNode::LOGICAL_OR
 # uninitialized constant RuboCop::AST::OrNode::LOGICAL_OR
@@ -6154,7 +6135,6 @@
 # Did you mean?  RuboCop::AST::PairNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::PairNode::KEYWORDS
 # uninitialized constant RuboCop::AST::PairNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::PairNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::PairNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::PairNode::OPERATOR_KEYWORDS
@@ -6195,7 +6175,6 @@
 # Did you mean?  RuboCop::AST::RangeNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::RangeNode::KEYWORDS
 # uninitialized constant RuboCop::AST::RangeNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::RangeNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::RangeNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::RangeNode::OPERATOR_KEYWORDS
@@ -6219,7 +6198,6 @@
 # Did you mean?  RuboCop::AST::RegexpNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::RegexpNode::KEYWORDS
 # uninitialized constant RuboCop::AST::RegexpNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::RegexpNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::RegexpNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::RegexpNode::OPERATOR_KEYWORDS
@@ -6244,7 +6222,6 @@
 # Did you mean?  RuboCop::AST::ResbodyNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ResbodyNode::KEYWORDS
 # uninitialized constant RuboCop::AST::ResbodyNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::ResbodyNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::ResbodyNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ResbodyNode::OPERATOR_KEYWORDS
@@ -6270,7 +6247,6 @@
 # Did you mean?  RuboCop::AST::RetryNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::RetryNode::KEYWORDS
 # uninitialized constant RuboCop::AST::RetryNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::RetryNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::RetryNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::RetryNode::OPERATOR_KEYWORDS
@@ -6298,7 +6274,6 @@
 # Did you mean?  RuboCop::AST::ReturnNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ReturnNode::KEYWORDS
 # uninitialized constant RuboCop::AST::ReturnNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::ReturnNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::ReturnNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::ReturnNode::OPERATOR_KEYWORDS
@@ -6324,7 +6299,6 @@
 # Did you mean?  RuboCop::AST::SelfClassNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::SelfClassNode::KEYWORDS
 # uninitialized constant RuboCop::AST::SelfClassNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::SelfClassNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::SelfClassNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::SelfClassNode::OPERATOR_KEYWORDS
@@ -6350,7 +6324,6 @@
 # Did you mean?  RuboCop::AST::SendNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::SendNode::KEYWORDS
 # uninitialized constant RuboCop::AST::SendNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::SendNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::SendNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::SendNode::OPERATOR_KEYWORDS
@@ -6378,7 +6351,6 @@
 # Did you mean?  RuboCop::AST::StrNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::StrNode::KEYWORDS
 # uninitialized constant RuboCop::AST::StrNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::StrNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::StrNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::StrNode::OPERATOR_KEYWORDS
@@ -6403,7 +6375,6 @@
 # Did you mean?  RuboCop::AST::SuperNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::SuperNode::KEYWORDS
 # uninitialized constant RuboCop::AST::SuperNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::SuperNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::SuperNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::SuperNode::OPERATOR_KEYWORDS
@@ -6429,7 +6400,6 @@
 # Did you mean?  RuboCop::AST::SymbolNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::SymbolNode::KEYWORDS
 # uninitialized constant RuboCop::AST::SymbolNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::SymbolNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::SymbolNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::SymbolNode::OPERATOR_KEYWORDS
@@ -6565,7 +6535,6 @@
 # Did you mean?  RuboCop::AST::UntilNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::UntilNode::KEYWORDS
 # uninitialized constant RuboCop::AST::UntilNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::UntilNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::UntilNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::UntilNode::OPERATOR_KEYWORDS
@@ -6590,7 +6559,6 @@
 # Did you mean?  RuboCop::AST::WhenNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::WhenNode::KEYWORDS
 # uninitialized constant RuboCop::AST::WhenNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::WhenNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::WhenNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::WhenNode::OPERATOR_KEYWORDS
@@ -6617,7 +6585,6 @@
 # Did you mean?  RuboCop::AST::WhileNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::WhileNode::KEYWORDS
 # uninitialized constant RuboCop::AST::WhileNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::WhileNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::WhileNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::WhileNode::OPERATOR_KEYWORDS
@@ -6644,7 +6611,6 @@
 # Did you mean?  RuboCop::AST::YieldNode::MUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::YieldNode::KEYWORDS
 # uninitialized constant RuboCop::AST::YieldNode::LITERALS
-# Did you mean?  Literal
 # uninitialized constant RuboCop::AST::YieldNode::MUTABLE_LITERALS
 # Did you mean?  RuboCop::AST::YieldNode::IMMUTABLE_LITERALS
 # uninitialized constant RuboCop::AST::YieldNode::OPERATOR_KEYWORDS
@@ -9723,7 +9689,7 @@
 # wrong constant name <Class:RequireParentheses>
 # wrong constant name autocorrect
 # wrong constant name initialize
-# undefined method `message<defaultArg>1' for module `#<Module:0x00007fe4abb08b68>'
+# undefined method `message<defaultArg>1' for module `#<Module:0x00007f9f252453f8>'
 # wrong constant name autocorrect
 # wrong constant name message<defaultArg>1
 # wrong constant name message
@@ -9732,7 +9698,7 @@
 # wrong constant name on_super
 # wrong constant name on_yield
 # wrong constant name <static-init>
-# undefined method `message<defaultArg>1' for module `#<Module:0x00007fe4abb11178>'
+# undefined method `message<defaultArg>1' for module `#<Module:0x00007f9f2524dbc0>'
 # wrong constant name autocorrect
 # wrong constant name message<defaultArg>1
 # wrong constant name message
@@ -11286,6 +11252,7 @@
 # wrong constant name resume
 # wrong constant name resolve_feature_path
 # wrong constant name stat
+# wrong constant name initialize
 # wrong constant name bytes
 # undefined method `flatten_merge<defaultArg>1' for class `Set'
 # undefined method `initialize<defaultArg>1' for class `Set'
@@ -13095,16 +13062,6 @@
 # wrong constant name call
 # wrong constant name initialize
 # wrong constant name <static-init>
-# uninitialized constant TestLexer::E
-# uninitialized constant TestLexer::PASSTHROUGH_EXCEPTIONS
-# uninitialized constant TestLexer::SIGNALS
-# Did you mean?  Signal
-# uninitialized constant TestLexer::TEARDOWN_METHODS
-# uninitialized constant TestLexer::UNDEFINED
-# wrong constant name test_scan_empty_source
-# wrong constant name test_scan_integer
-# wrong constant name test_scan_skips_whitespace
-# wrong constant name test_scan_unknown_character
 # undefined method `help<defaultArg>1' for class `Thor'
 # undefined method `help<defaultArg>2' for class `Thor'
 # wrong constant name <Class:Base>

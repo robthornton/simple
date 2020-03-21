@@ -110,7 +110,27 @@ class Array
   def self.try_convert(_); end
 end
 
+class Ast::BinaryExpression
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Ast::Identifier
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Ast::Literal
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 class Ast::Program
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Ast::VarExpression
   extend ::T::Private::Methods::MethodHooks
   extend ::T::Private::Methods::SingletonMethodHooks
 end
@@ -126,11 +146,6 @@ end
 
 class BigDecimal
   def self.new(*args, **kwargs); end
-end
-
-class BinaryExpression
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
 end
 
 class Binding
@@ -860,6 +875,16 @@ module CGI::HtmlExtension
 end
 
 module CGI::HtmlExtension
+end
+
+class CGenerator::Binary
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class CGenerator::Expression
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
 end
 
 class CGenerator::Numeric
@@ -1879,16 +1904,6 @@ class KeyError
   def key(); end
 
   def receiver(); end
-end
-
-class Lexer
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-class Literal
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
 end
 
 class LoadError
@@ -4856,6 +4871,9 @@ class Parser::VariablesStack
 end
 
 class Parser::VariablesStack
+end
+
+module Parser
 end
 
 class Pathname
@@ -18384,7 +18402,13 @@ end
 
 ScanError = StringScanner::Error
 
-class Scanner
+class Scanner::Interface
+  def initialize(*args, &blk); end
+end
+
+class Scanner::Interface
+  extend ::T::Private::Abstract::Hooks
+  extend ::T::InterfaceWrapper::Helpers
   extend ::T::Private::Methods::MethodHooks
   extend ::T::Private::Methods::SingletonMethodHooks
 end
@@ -21826,16 +21850,6 @@ class Tempfile::Remover
 end
 
 class Tempfile::Remover
-end
-
-class TestLexer
-  def test_scan_empty_source(); end
-
-  def test_scan_integer(); end
-
-  def test_scan_skips_whitespace(); end
-
-  def test_scan_unknown_character(); end
 end
 
 class Thor
