@@ -2,10 +2,10 @@
 
 # typed: strict
 
-module Lexer
+module Simple
   # Lexer is a lexical analyzer. Each call to scan will return a new
   # Token.
-  class Interface
+  class LexerInterface
     extend T::Sig
     extend T::Helpers
     abstract!

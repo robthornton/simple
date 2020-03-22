@@ -3,15 +3,14 @@
 
 require 'sorbet-runtime'
 
-require_relative('../item.rb')
-require_relative('../scanner/simple.rb')
+require('item.rb')
+require('scanner/main.rb')
+require('lexer/interface.rb')
 
-require_relative('./interface.rb')
-
-module Lexer
+module Simple
   # Lexer is a lexical analyzer. Each call to scan will return a new
   # Token.
-  class Simple < Interface
+  class Lexer < LexerInterface
     extend T::Sig
 
     sig { override.returns(Item) }
@@ -32,10 +31,10 @@ module Lexer
 
     private
 
-    sig { returns(SimpleFile) }
+    sig { returns(Simple::File) }
     attr_reader :file
 
-    sig { returns(Scanner::Interface) }
+    sig { returns(ScannerInterface) }
     attr_reader :scanner
 
     DIGITS = '0123456789'
@@ -77,7 +76,7 @@ module Lexer
       end
     end
 
-    sig { params(scanner: Scanner::Interface, file: SimpleFile).void }
+    sig { params(scanner: ScannerInterface, file: Simple::File).void }
     def initialize(scanner:, file:)
       @file = file
       @scanner = scanner
