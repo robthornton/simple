@@ -31,7 +31,7 @@ class TestAbstractSyntaxTree < Minitest::Test
 
   def test_var_expression
     ident = Simple::AST::Identifier.new(literal: 'ident', position: 4)
-    varexp = Simple::AST::VarExpression.new(var: 0, identifiers: [ident])
+    varexp = Simple::AST::Var.new(var: 0, identifiers: [ident])
 
     assert_equal(0, varexp.var)
     assert_equal(ident, varexp.identifiers[0])

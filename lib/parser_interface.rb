@@ -2,14 +2,14 @@
 
 # typed: strict
 
-module Parser
+module Simple
   # Parsers need to implement #parse
-  class Interface
+  class ParserInterface
     extend T::Sig
     extend T::Helpers
     abstract!
 
-    sig { abstract.returns(Ast::Program) }
+    sig { abstract.returns(AST::Program) }
     def parse; end
   end
 end

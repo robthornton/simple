@@ -1,23 +1,22 @@
 # typed: true
 # frozen_string_literal: true
 
-require_relative('../ast.rb')
-require_relative('../lexer.rb')
-
-require_relative('./interface.rb')
+require('ast/main.rb')
+require('lexer.rb')
+require('parser_interface.rb')
 
 # Simple language namespace
-module Parser
+module Simple
   # The Parser produces an abstract syntax tree
-  class Parser < Interface
+  class Parser < ParserInterface
     extend T::Sig
 
-    sig { override.returns(Ast::Program) }
+    sig { override.returns(AST::Program) }
     def parse
       next_item
       expression = parse_expression
 
-      program = Ast::Program.new
+      program = AST::Program.new
       program.add_expression(expression)
       program
     end
@@ -53,11 +52,11 @@ module Parser
       item.position
     end
 
-    sig { returns(Ast::Expression) }
+    sig { returns(AST::Expression) }
     def parse_expression
       return parse_var if item.token == Token::Var
 
-      expression = Ast::NumericLiteral.new(literal: item.literal, position: item.position)
+      expression = AST::NumericLiteral.new(literal: item.literal, position: item.position)
 
       next_item
       return expression if item.token == Token::EOF
@@ -65,23 +64,23 @@ module Parser
       parse_binary_expression(item: item, lhs: expression)
     end
 
-    sig { params(item: Item, lhs: Ast::Expression).returns(Ast::BinaryExpression) }
+    sig { params(item: Item, lhs: AST::Expression).returns(AST::Binary) }
     def parse_binary_expression(item:, lhs:)
       operator = item.literal
 
       next_item
       rhs = parse_expression
 
-      Ast::BinaryExpression.new(lhs: lhs, operator: operator, rhs: rhs)
+      AST::Binary.new(lhs: lhs, operator: operator, rhs: rhs)
     end
 
-    sig { returns(T::Array[Ast::Identifier]) }
+    sig { returns(T::Array[AST::Identifier]) }
     def parse_identifier_list
-      identifiers = T.let([], T::Array[Ast::Identifier])
+      identifiers = T.let([], T::Array[AST::Identifier])
       # more = T.let(true, T::Boolean)
 
       # while more
-      identifiers << Ast::Identifier.new(literal: item.literal, position: item.position)
+      identifiers << AST::Identifier.new(literal: item.literal, position: item.position)
 
       # more = false if item.token == Token::Comma
       # end
@@ -89,14 +88,14 @@ module Parser
       identifiers
     end
 
-    sig { returns(Ast::VarExpression) }
+    sig { returns(AST::Var) }
     def parse_var
       var = expect(Token::Var)
       next_item
 
       identifiers = parse_identifier_list
 
-      Ast::VarExpression.new(var: var, identifiers: identifiers)
+      AST::Var.new(var: var, identifiers: identifiers)
     end
   end
 end

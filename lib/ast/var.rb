@@ -8,7 +8,7 @@ require_relative('./expression.rb')
 module Simple
   module AST
     # A var expression
-    class VarExpression < Expression
+    class Var < Expression
       extend T::Sig
 
       sig { returns(T::Array[Identifier]) }
