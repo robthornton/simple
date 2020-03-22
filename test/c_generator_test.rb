@@ -1,40 +1,40 @@
 # typed: true
 # frozen_string_literal: true
 
-require 'minitest/autorun'
+require('minitest/autorun')
 
-require_relative '../src/ast.rb'
-require_relative '../src/c_generator.rb'
+require('ast.rb')
+require('c_generator.rb')
 
 class CGeneratorTest < Minitest::Test
   def test_generate_empty_program
     file = StringIO.new
 
-    program = Ast::Program.new
-    program.add_expression(Ast::NumericLiteral.new(literal: '42', position: 0))
+    program = Simple::AST::Program.new
+    program.add_expression(Simple::AST::NumericLiteral.new(literal: '42', position: 0))
 
-    generator = CGenerator::Program.new(out: file)
+    generator = Simple::CGenerator::Program.new(out: file)
     generator.generate(program)
 
     assert_equal('int main(int argc, char* argv[]) { return 42; }', file.string)
   end
 
   def test_generate_numeric
-    numeric = Ast::NumericLiteral.new(literal: '42', position: 0)
+    numeric = Simple::AST::NumericLiteral.new(literal: '42', position: 0)
     file = StringIO.new
 
-    CGenerator::Numeric.generate(out: file, expression: numeric)
+    Simple::CGenerator::Numeric.generate(out: file, expression: numeric)
 
     assert_equal('42', file.string)
   end
 
   def test_generate_binary_expression
-    lhs = Ast::NumericLiteral.new(literal: '1', position: 0)
-    rhs = Ast::NumericLiteral.new(literal: '2', position: 2)
-    binexp = Ast::BinaryExpression.new(lhs: lhs, operator: '+', rhs: rhs)
+    lhs = Simple::AST::NumericLiteral.new(literal: '1', position: 0)
+    rhs = Simple::AST::NumericLiteral.new(literal: '2', position: 2)
+    binexp = Simple::AST::Binary.new(lhs: lhs, operator: '+', rhs: rhs)
 
     file = StringIO.new
-    CGenerator::Binary.generate(out: file, expression: binexp)
+    Simple::CGenerator::Binary.generate(out: file, expression: binexp)
 
     assert_equal('1+2', file.string)
   end

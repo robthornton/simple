@@ -1,78 +1,80 @@
 # typed: true
 # frozen_string_literal: true
 
-require 'sorbet-runtime'
+require('sorbet-runtime')
 
-require_relative 'ast.rb'
+require('ast.rb')
 
-# Generates C code for the supplied program
-module CGenerator
-  # Program code generator
-  class Program
-    extend T::Sig
+module Simple
+  # Generates C code for the supplied program
+  module CGenerator
+    # Program code generator
+    class Program
+      extend T::Sig
 
-    sig { params(out: T.any(File, StringIO)).void }
-    def initialize(out:)
-      @out = out
-    end
-
-    sig { params(program: Ast::Program).void }
-    def generate(program)
-      out.print('int main(int argc, char* argv[]) { return ')
-      Expression.generate(
-        out: out,
-        expression: T.cast(program.expressions[0], Ast::Expression)
-      )
-      out.print('; }')
-    end
-
-    private
-
-    sig { returns(T.any(File, StringIO)) }
-    attr_reader :out
-  end
-end
-
-module CGenerator
-  # Expression
-  class Expression
-    extend T::Sig
-
-    sig { params(out: T.any(File, StringIO), expression: Ast::Expression).void }
-    def self.generate(out:, expression:)
-      if expression.instance_of?(Ast::NumericLiteral)
-        Numeric.generate(out: out, expression: T.cast(expression, Ast::NumericLiteral))
+      sig { params(out: T.any(File, StringIO)).void }
+      def initialize(out:)
+        @out = out
       end
 
-      if expression.instance_of?(Ast::BinaryExpression)
-        Binary.generate(out: out, expression: T.cast(expression, Ast::BinaryExpression))
+      sig { params(program: AST::Program).void }
+      def generate(program)
+        out.print('int main(int argc, char* argv[]) { return ')
+        Expression.generate(
+          out: out,
+          expression: T.cast(program.expressions[0], AST::Expression)
+        )
+        out.print('; }')
+      end
+
+      private
+
+      sig { returns(T.any(File, StringIO)) }
+      attr_reader :out
+    end
+  end
+
+  module CGenerator
+    # Expression
+    class Expression
+      extend T::Sig
+
+      sig { params(out: T.any(File, StringIO), expression: AST::Expression).void }
+      def self.generate(out:, expression:)
+        if expression.instance_of?(AST::NumericLiteral)
+          Numeric.generate(out: out, expression: T.cast(expression, AST::NumericLiteral))
+        end
+
+        if expression.instance_of?(AST::Binary)
+          Binary.generate(out: out, expression: T.cast(expression, AST::Binary))
+        end
       end
     end
   end
-end
 
-module CGenerator
-  # Numeric literal generator
-  class Numeric
-    extend T::Sig
+  module CGenerator
+    # Numeric literal generator
+    class Numeric
+      extend T::Sig
 
-    sig { params(out: T.any(File, StringIO), expression: Ast::NumericLiteral).void }
-    def self.generate(out:, expression:)
-      out.print(expression.literal)
+      sig { params(out: T.any(File, StringIO), expression: AST::NumericLiteral).void }
+      def self.generate(out:, expression:)
+        out.print(expression.literal)
+      end
     end
   end
-end
 
-module CGenerator
-  # Binary expression generator
-  class Binary
-    extend T::Sig
+  module CGenerator
+    # Binary expression generator
+    class Binary
+      extend T::Sig
 
-    sig { params(out: T.any(File, StringIO), expression: Ast::BinaryExpression).void }
-    def self.generate(out:, expression:)
-      Expression.generate(out: out, expression: expression.lhs)
-      out.print(expression.operator)
-      Expression.generate(out: out, expression: expression.rhs)
+      sig { params(out: T.any(File, StringIO), expression: AST::Binary).void }
+      def self.generate(out:, expression:)
+        Expression.generate(out: out, expression: expression.lhs)
+        out.print(expression.operator)
+        Expression.generate(out: out, expression: expression.rhs)
+      end
     end
   end
 end
