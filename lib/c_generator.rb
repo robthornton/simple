@@ -12,7 +12,7 @@ module Simple
     class Program
       extend T::Sig
 
-      sig { params(out: T.any(File, StringIO)).void }
+      sig { params(out: T.any(::File, ::StringIO)).void }
       def initialize(out:)
         @out = out
       end
@@ -29,7 +29,7 @@ module Simple
 
       private
 
-      sig { returns(T.any(File, StringIO)) }
+      sig { returns(T.any(::File, ::StringIO)) }
       attr_reader :out
     end
   end
@@ -39,7 +39,7 @@ module Simple
     class Expression
       extend T::Sig
 
-      sig { params(out: T.any(File, StringIO), expression: AST::Expression).void }
+      sig { params(out: T.any(::File, ::StringIO), expression: AST::Expression).void }
       def self.generate(out:, expression:)
         if expression.instance_of?(AST::NumericLiteral)
           Numeric.generate(out: out, expression: T.cast(expression, AST::NumericLiteral))
@@ -57,7 +57,7 @@ module Simple
     class Numeric
       extend T::Sig
 
-      sig { params(out: T.any(File, StringIO), expression: AST::NumericLiteral).void }
+      sig { params(out: T.any(::File, ::StringIO), expression: AST::NumericLiteral).void }
       def self.generate(out:, expression:)
         out.print(expression.literal)
       end
@@ -69,7 +69,7 @@ module Simple
     class Binary
       extend T::Sig
 
-      sig { params(out: T.any(File, StringIO), expression: AST::Binary).void }
+      sig { params(out: T.any(::File, ::StringIO), expression: AST::Binary).void }
       def self.generate(out:, expression:)
         Expression.generate(out: out, expression: expression.lhs)
         out.print(expression.operator)
