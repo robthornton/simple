@@ -1,11 +1,11 @@
 # typed: true
 # frozen_string_literal: true
 
-require_relative('./interface.rb')
+require('scanner_interface.rb')
 
-module Scanner
+module Simple
   # Scanner steps through an input file, one character at a time.
-  class Simple < Interface
+  class Scanner < ScannerInterface
     extend T::Sig
 
     sig { override.returns(String) }

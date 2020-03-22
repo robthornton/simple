@@ -4,11 +4,11 @@
 
 require 'sorbet-runtime'
 
-module Scanner
+module Simple
   # Scanner defines an interface to fetch the current character and
   # the character's position. It can accept any of a string of
   # characters and ignore input altogether.
-  class Interface
+  class ScannerInterface
     extend T::Sig
     extend T::Helpers
     abstract!
