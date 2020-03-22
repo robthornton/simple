@@ -4,8 +4,8 @@
 require 'sorbet-runtime'
 
 require('item.rb')
-require('scanner/main.rb')
-require('lexer/interface.rb')
+require('scanner.rb')
+require('lexer_interface.rb')
 
 module Simple
   # Lexer is a lexical analyzer. Each call to scan will return a new
