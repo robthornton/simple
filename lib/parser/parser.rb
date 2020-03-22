@@ -1,23 +1,25 @@
 # typed: true
 # frozen_string_literal: true
 
-require_relative 'ast.rb'
-require_relative 'lexer.rb'
+require_relative('../ast.rb')
+require_relative('../lexer.rb')
+
+require_relative('./interface.rb')
 
 # Simple language namespace
-module Simple
+module Parser
   # The Parser produces an abstract syntax tree
-  class Parser
+  class Parser < Interface
     extend T::Sig
 
-    sig { returns(Ast::Program) }
+    sig { override.returns(Ast::Program) }
     def parse
       next_item
       expression = parse_expression
 
-      p = Ast::Program.new
-      p.add_expression(expression)
-      p
+      program = Ast::Program.new
+      program.add_expression(expression)
+      program
     end
 
     private

@@ -1,10 +1,12 @@
 # typed: true
 # frozen_string_literal: true
 
-require_relative('./file.rb')
-require_relative('./lexer.rb')
-require_relative('./parser.rb')
-require_relative('./c_generator.rb')
+require('./bootstrap.rb')
+
+require('c_generator.rb')
+require('file.rb')
+require('lexer/main.rb')
+require('parser/main.rb')
 
 input = File.open('./test.smpl')
 output = File.open('./test.c', 'w')

@@ -1116,6 +1116,7 @@
 # wrong constant name at_exit
 # wrong constant name key
 # wrong constant name receiver
+# wrong constant name initialize
 # wrong constant name path
 # wrong constant name exit_value
 # wrong constant name reason
@@ -2345,6 +2346,7 @@
 # wrong constant name raise?
 # wrong constant name <static-init>
 # wrong constant name <static-init>
+# wrong constant name initialize
 # undefined method `diagnostic<defaultArg>1' for class `Parser::Lexer'
 # undefined method `diagnostic<defaultArg>2' for class `Parser::Lexer'
 # undefined method `diagnostic<defaultArg>3' for class `Parser::Lexer'
@@ -2871,7 +2873,6 @@
 # wrong constant name pop
 # wrong constant name push
 # wrong constant name reset
-# wrong constant name <static-init>
 # wrong constant name <static-init>
 # undefined method `children<defaultArg>1' for class `Pathname'
 # undefined method `find<defaultArg>1' for class `Pathname'
@@ -9689,7 +9690,7 @@
 # wrong constant name <Class:RequireParentheses>
 # wrong constant name autocorrect
 # wrong constant name initialize
-# undefined method `message<defaultArg>1' for module `#<Module:0x00007f9f252453f8>'
+# undefined method `message<defaultArg>1' for module `#<Module:0x00007fb7d0286c68>'
 # wrong constant name autocorrect
 # wrong constant name message<defaultArg>1
 # wrong constant name message
@@ -9698,7 +9699,7 @@
 # wrong constant name on_super
 # wrong constant name on_yield
 # wrong constant name <static-init>
-# undefined method `message<defaultArg>1' for module `#<Module:0x00007f9f2524dbc0>'
+# undefined method `message<defaultArg>1' for module `#<Module:0x00007fb7d0287370>'
 # wrong constant name autocorrect
 # wrong constant name message<defaultArg>1
 # wrong constant name message
@@ -13062,6 +13063,23 @@
 # wrong constant name call
 # wrong constant name initialize
 # wrong constant name <static-init>
+# uninitialized constant TestLexer::E
+# uninitialized constant TestLexer::PASSTHROUGH_EXCEPTIONS
+# uninitialized constant TestLexer::SIGNALS
+# Did you mean?  Signal
+# uninitialized constant TestLexer::TEARDOWN_METHODS
+# uninitialized constant TestLexer::UNDEFINED
+# wrong constant name test_scan_add_operator
+# wrong constant name test_scan_assignment
+# wrong constant name test_scan_division_operator
+# wrong constant name test_scan_empty_source
+# wrong constant name test_scan_identifier
+# wrong constant name test_scan_integer
+# wrong constant name test_scan_multiply_operator
+# wrong constant name test_scan_skips_whitespace
+# wrong constant name test_scan_subtract_operator
+# wrong constant name test_scan_unknown_character
+# wrong constant name test_scan_var_keyword
 # undefined method `help<defaultArg>1' for class `Thor'
 # undefined method `help<defaultArg>2' for class `Thor'
 # wrong constant name <Class:Base>

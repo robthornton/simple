@@ -1906,6 +1906,17 @@ class KeyError
   def receiver(); end
 end
 
+class Lexer::Interface
+  def initialize(*args, &blk); end
+end
+
+class Lexer::Interface
+  extend ::T::Private::Abstract::Hooks
+  extend ::T::InterfaceWrapper::Helpers
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 class LoadError
   def path(); end
 end
@@ -3947,6 +3958,17 @@ end
 class Parser::Diagnostic
 end
 
+class Parser::Interface
+  def initialize(*args, &blk); end
+end
+
+class Parser::Interface
+  extend ::T::Private::Abstract::Hooks
+  extend ::T::InterfaceWrapper::Helpers
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 class Parser::Lexer
   def advance(); end
 
@@ -4871,9 +4893,6 @@ class Parser::VariablesStack
 end
 
 class Parser::VariablesStack
-end
-
-module Parser
 end
 
 class Pathname
@@ -18465,7 +18484,7 @@ class SignalException
   def signo(); end
 end
 
-class SimpleFile
+class Simple::File
   extend ::T::Private::Methods::MethodHooks
   extend ::T::Private::Methods::SingletonMethodHooks
 end
@@ -21850,6 +21869,30 @@ class Tempfile::Remover
 end
 
 class Tempfile::Remover
+end
+
+class TestLexer
+  def test_scan_add_operator(); end
+
+  def test_scan_assignment(); end
+
+  def test_scan_division_operator(); end
+
+  def test_scan_empty_source(); end
+
+  def test_scan_identifier(); end
+
+  def test_scan_integer(); end
+
+  def test_scan_multiply_operator(); end
+
+  def test_scan_skips_whitespace(); end
+
+  def test_scan_subtract_operator(); end
+
+  def test_scan_unknown_character(); end
+
+  def test_scan_var_keyword(); end
 end
 
 class Thor

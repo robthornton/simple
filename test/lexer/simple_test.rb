@@ -3,13 +3,14 @@
 
 require 'minitest/autorun'
 
-require_relative '../src/item.rb'
-require_relative '../src/lexer.rb'
+require_relative '../../src/item.rb'
+require_relative '../../src/lexer/simple.rb'
 
 class TestLexer < Minitest::Test
   def test_scan_empty_source
-    file = SimpleFile.new(name: 'empty.smpl', source: '', length: 0)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'empty.smpl', source: '', length: 0)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
@@ -18,8 +19,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_integer
-    file = SimpleFile.new(name: 'integer.smpl', source: '123', length: 3)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'integer.smpl', source: '123', length: 3)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
@@ -28,8 +30,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_skips_whitespace
-    file = SimpleFile.new(name: 'whitespace.smpl', source: " \t\n\r", length: 4)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'whitespace.smpl', source: " \t\n\r", length: 4)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(4, item.position)
@@ -38,8 +41,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_unknown_character
-    file = SimpleFile.new(name: 'unknown.smpl', source: '#', length: 1)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'unknown.smpl', source: '#', length: 1)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
@@ -48,8 +52,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_add_operator
-    file = SimpleFile.new(name: 'add.smpl', source: '+', length: 1)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'add.smpl', source: '+', length: 1)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
@@ -58,8 +63,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_subtract_operator
-    file = SimpleFile.new(name: 'subtract.smpl', source: '-', length: 1)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'subtract.smpl', source: '-', length: 1)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
@@ -68,8 +74,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_multiply_operator
-    file = SimpleFile.new(name: 'multiply.smpl', source: '*', length: 1)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'multiply.smpl', source: '*', length: 1)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
@@ -78,8 +85,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_division_operator
-    file = SimpleFile.new(name: 'division.smpl', source: '/', length: 1)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'division.smpl', source: '/', length: 1)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
@@ -88,8 +96,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_var_keyword
-    file = SimpleFile.new(name: 'var.smpl', source: 'var', length: 3)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'var.smpl', source: 'var', length: 3)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
@@ -98,8 +107,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_identifier
-    file = SimpleFile.new(name: 'ident.smpl', source: 'ident', length: 5)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'ident.smpl', source: 'ident', length: 5)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
@@ -108,8 +118,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_assignment
-    file = SimpleFile.new(name: 'assignment.smpl', source: ':=', length: 2)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'assignment.smpl', source: ':=', length: 2)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
@@ -118,8 +129,9 @@ class TestLexer < Minitest::Test
   end
 
   def test_scan_assignment
-    file = SimpleFile.new(name: 'comma.smpl', source: ',', length: 1)
-    lexer = Lexer.new(file)
+    file = Simple::File.new(name: 'comma.smpl', source: ',', length: 1)
+    scanner = Scanner::Simple.new(file.source)
+    lexer = Lexer.new(scanner: scanner, file: file)
     item = lexer.scan
 
     assert_equal(0, item.position)
