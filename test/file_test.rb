@@ -1,8 +1,8 @@
 # typed: true
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require_relative '../src/file.rb'
+require('minitest/autorun')
+require('file.rb')
 
 class TestFile < Minitest::Test
   def test_file_source

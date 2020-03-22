@@ -3,7 +3,7 @@
 
 require('sorbet-runtime')
 
-require('./position.rb')
+require('position.rb')
 
 module Simple
   # File represents a file containing source code.
