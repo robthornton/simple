@@ -1,13 +1,13 @@
 # typed: true
 # frozen_string_literal: true
 
-require 'minitest/autorun'
+require('minitest/autorun')
 
-require_relative '../src/position.rb'
+require('position.rb')
 
 class TestPosition < Minitest::Test
   def test_position_new
-    p = Position.new(file_name: 'file.smpl', line: 2, column: 5)
+    p = Simple::Position.new(file_name: 'file.smpl', line: 2, column: 5)
 
     assert_equal('file.smpl', p.file_name)
     assert_equal(2, p.line)
