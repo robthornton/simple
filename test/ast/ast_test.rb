@@ -1,9 +1,8 @@
 # typed: true
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-
-require_relative '../../src/ast/ast.rb'
+require('minitest/autorun')
+require(RootPath + '/src/ast/ast.rb')
 
 class TestAbstractSyntaxTree < Minitest::Test
   def test_numeric_literal

@@ -1,8 +1,8 @@
 # typed: false
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require_relative '../../src/scanner/simple.rb'
+require('minitest/autorun')
+require(RootPath + '/src/scanner/simple.rb')
 
 class TestScanner < Minitest::Test
   def test_character
