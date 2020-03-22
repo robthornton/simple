@@ -9,7 +9,8 @@ require('parser.rb')
 class ParserTest < Minitest::Test
   def test_parser_integer
     file = Simple::File.new(name: 'integer.smpl', source: '123', length: 3)
-    lexer = Lexer.new(file)
+    scanner = Simple::Scanner.new(file.source)
+    lexer = Simple::Lexer.new(scanner: scanner, file: file)
     parser = Simple::Parser.new(lexer)
     program = parser.parse
 
@@ -19,7 +20,8 @@ class ParserTest < Minitest::Test
 
   def test_parse_binary_expression
     file = Simple::File.new(name: 'add.smpl', source: '2 + 3', length: 5)
-    lexer = Lexer.new(file)
+    scanner = Simple::Scanner.new(file.source)
+    lexer = Simple::Lexer.new(scanner: scanner, file: file)
     parser = Simple::Parser.new(lexer)
     program = parser.parse
 
@@ -29,7 +31,8 @@ class ParserTest < Minitest::Test
 
   def test_parse_chained_binary_expression
     file = Simple::File.new(name: 'add.smpl', source: '2 + 3 - 1', length: 5)
-    lexer = Lexer.new(file)
+    scanner = Simple::Scanner.new(file.source)
+    lexer = Simple::Lexer.new(scanner: scanner, file: file)
     parser = Simple::Parser.new(lexer)
     program = parser.parse
 
@@ -40,7 +43,8 @@ class ParserTest < Minitest::Test
 
   def test_parse_var_expression_single_identifier
     file = Simple::File.new(name: 'var_single.smpl', source: 'var ident0', length: 10)
-    lexer = Lexer.new(file)
+    scanner = Simple::Scanner.new(file.source)
+    lexer = Simple::Lexer.new(scanner: scanner, file: file)
     parser = Simple::Parser.new(lexer)
     program = parser.parse
 
@@ -55,7 +59,7 @@ class ParserTest < Minitest::Test
   #     source: 'var ident0, ident1',
   #     length: 18
   #   )
-  #   lexer = Lexer.new(file)
+  #   lexer = Simple::Lexer.new(file)
   #   parser = Simple::Parser.new(lexer)
   #   program = parser.parse
 
